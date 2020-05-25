@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<title style="font-family:Mistral;font-size:30px">C Programming/structure & Union</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="jumbotron bg-primary">
+<h1 class="text-center" style="font-family:Staatliches;font-size:50px;color:white"><kbd>C</kbd> Programming For Beginners</h1>
+</div>
+
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches"> <kbd>C</kbd> Structure and Union</h1>
+
+</div>
+</div>
+</div>
+</header>
+
+<div class="container">
+<p>
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> struct</h1>
+</p><p>In this tutorial, you'll learn about struct types in C Programming. You will learn to define and use structures with the help of examples.
+
+
+</p><p>In C programming, a struct (or structure) is a collection of variables (can be of different types) under a single name.
+
+</p><p><kbd>How to define structures?</kbd>
+</p><p>Before you can create structure variables, you need to define its data type. To define a struct, the struct keyword is used.
+</p><p>Syntax of struct
+</p><p>struct structureName 
+</p><p>{
+</p><p>    dataType member1;
+</p><p>    dataType member2;
+</p><p>    ...
+</p><p>};
+</p><p>Here is an example:
+</p><p>struct Person
+</p><p>{
+</p><p>    char name[50];
+</p><p>    int citNo;
+</p><p>    float salary;
+</p><p>};
+</p><p>Here, a derived type struct Person is defined. Now, you can create variables of this type.
+
+</p><p>Create struct variables
+</p><p>When a struct type is declared, no storage or memory is allocated. To allocate memory of a given structure type and work with it, we need to create variables.
+</p><p>Here's how we create structure variables:
+</p><p>struct Person
+</p><p>{
+</p><p>    char name[50];
+</p><p>    int citNo;
+</p><p>    float salary;
+</p><p>};
+
+</p><p>int main()
+</p><p>{
+</p><p>    struct Person person1, person2, p[20];
+</p><p>    return 0;
+</p><p>}
+</p><p>Another way of creating a struct variable is:
+</p><p>struct Person
+</p><p>{
+ </p><p>   char name[50];
+ </p><p>   int citNo;
+</p><p>    float salary;
+</p><p>} person1, person2, p[20];
+</p><p>In both cases, two variables person1, person2, and an array variable p having 20 elements of type struct Person are created.
+
+</p><p><kbd>Access members of a structure</kbd>
+</p><p>There are two types of operators used for accessing members of a structure.
+</p><p>. - Member operator
+</p><p>-> - Structure pointer operator (will be discussed in the next tutorial)
+</p><p>Suppose, you want to access the salary of person2. Here's how you can do it.
+</p><p>person2.salary
+
+</p><p>Example: Add two distances
+</p><p><code>// Program to add two distances (feet-inch)
+</p><p>#include <stdio.h>
+</p><p>struct Distance
+</p><p>{
+  </p><p>  int feet;
+</p><p>    float inch;
+</p><p>} dist1, dist2, sum;
+
+</p><p>int main()
+</p><p>{
+  </p><p>  printf("1st distance\n");
+ </p><p>   printf("Enter feet: ");
+ </p><p>   scanf("%d", &dist1.feet);
+
+ </p><p>   printf("Enter inch: ");
+ </p><p>   scanf("%f", &dist1.inch);
+</p><p>    printf("2nd distance\n");
+
+</p><p>    printf("Enter feet: ");
+</p><p>    scanf("%d", &dist2.feet);
+
+ </p><p>   printf("Enter inch: ");
+ </p><p>   scanf("%f", &dist2.inch);
+
+</p><p>    // adding feet
+</p><p>    sum.feet = dist1.feet + dist2.feet;
+</p><p>    // adding inches
+</p><p>    sum.inch = dist1.inch + dist2.inch;
+
+ </p><p>   // changing to feet if inch is greater than 12
+ </p><p>   while (sum.inch >= 12) 
+</p><p>    {
+  </p><p>      ++sum.feet;
+ </p><p>       sum.inch = sum.inch - 12;
+ </p><p>   }
+
+ </p><p>   printf("Sum of distances = %d\'-%.1f\"", sum.feet, sum.inch);
+ </p><p>   return 0;
+</p><p>}
+
+
+
+</p><p>Output
+</p><p>1st distance
+</p><p>Enter feet: 12
+</p><p>Enter inch: 7.9
+</p><p>2nd distance
+</p><p>Enter feet: 2
+</p><p>Enter inch: 9.8
+</p><p>Sum of distances = 15'-5.7"</code>
+
+</p><p><kbd>Keyword typedef</kbd>
+</p><p>We use the typedef keyword to create an alias name for data types. It is commonly used with structures to simplify the syntax of declaring variables.
+</p><p>This code
+</p><p>struct Distance{
+</p><p>    int feet;
+</p><p>    float inch;
+</p><p>};
+
+</p><p>int main() {
+</p><p>    structure Distance d1, d2;
+</p><p>}
+</p><p>is equivalent to
+</p><p>typedef struct Distance{
+  </p><p>  int feet;
+  </p><p>  float inch;
+</p><p>} distances;
+
+</p><p>int main() {
+</p><p>    distances d1, d2;
+</p><p>}
+
+</p><p><kbd>Nested Structures</kbd>
+</p><p>You can create structures within a structure in C programming. For example,
+</p><p>struct complex
+</p><p>{
+</p><p> int imag;
+</p><p> float real;
+</p><p>};
+
+</p><p>struct number
+</p><p>{
+</p><p>   struct complex comp;
+</p><p>   int integers;
+</p><p>} num1, num2;
+</p><p>Suppose, you want to set imag of num2 variable to 11. Here's how you can do it:
+</p><p>num2.comp.imag = 11;
+
+
+</p><p><kbd>Why structs in C?</kbd>
+</p><p>Suppose, you want to store information about a person: his/her name, citizenship number, and salary. You can create different variables name, citNo and salary to store this information.
+</p><p>What if you need to store information of more than one person? Now, you need to create different variables for each information per person: name1, citNo1, salary1, name2, citNo2, salary2, etc.
+</p><p>A better approach would be to have a collection of all related information under a single name Person structure and use it for every person.
+
+</p><p>More on struct
+</p><p>Structures and pointers
+</p><p>Passing structures to a function
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> structs and Pointers</h1>
+</p><p>In this tutorial, you'll learn to use pointers to access members of structs in C programming. You will also learn to dynamically allocate memory of struct types.
+
+
+</p><p>Before you learn about how pointers can be used with structs, be sure to check these tutorials:
+</p><p>C Pointers
+</p><p>C struct
+
+</p><p>C Pointers to struct
+</p><p>Here's how you can create pointers to structs.
+</p><p>struct name {
+</p><p>    member1;
+</p><p>    member2;
+</p><p>    .
+</p><p>    .
+</p><p>};
+
+</p><p>int main()
+</p><p>{
+</p><p>    struct name *ptr, Harry;
+</p><p>}
+</p><p>Here, ptr is a pointer to struct.
+
+</p><p>Example: Access members using Pointer
+</p><p>To access members of a structure using pointers, we use the -> operator.
+</p><p><code>#include <stdio.h>
+</p><p>struct person
+</p><p>{
+ </p><p>  int age;
+ </p><p>  float weight;
+</p><p>};
+
+</p><p>int main()
+</p><p>{
+</p><p>    struct person *personPtr, person1;
+ </p><p>   personPtr = &person1;   
+
+ </p><p>   printf("Enter age: ");
+ </p><p>   scanf("%d", &personPtr->age);
+
+ </p><p>   printf("Enter weight: ");
+ </p><p>   scanf("%f", &personPtr->weight);
+
+</p><p>    printf("Displaying:\n");
+</p><p>    printf("Age: %d\n", personPtr->age);
+</p><p>    printf("weight: %f", personPtr->weight);
+
+</p><p>    return 0;
+</p><p>}</code>
+</p><p>In this example, the address of person1 is stored in the personPtr pointer using personPtr = &person1;.
+</p><p>Now, you can access the members of person1 using the personPtr pointer.
+
+
+
+</p><p>By the way,
+</p><p><kbd>personPtr</kbd> ->age is equivalent to (*personPtr).age
+</p><p><kbd>personPtr</kbd> ->weight is equivalent to (*personPtr).weight
+
+</p><p><kbd>Dynamic memory allocation of structs</kbd>
+</p><p>Before you proceed this section, we recommend you to check C dynamic memory allocation.
+</p><p>Sometimes, the number of struct variables you declared may be insufficient. You may need to allocate memory during run-time. Here's how you can achieve this in C programming.
+</p><p>Example: Dynamic memory allocation of structs
+</p><p><code>#include <stdio.h>
+</p><p>#include <stdlib.h>
+</p><p>struct person {
+</p><p>   int age;
+</p><p>   float weight;
+</p><p>   char name[30];
+</p><p>};
+
+</p><p>int main()
+</p><p>{
+ </p><p>  struct person *ptr;
+ </p><p>  int i, n;
+
+ </p><p>  printf("Enter the number of persons: ");
+ </p><p>  scanf("%d", &n);
+
+ </p><p>  // allocating memory for n numbers of struct person
+ </p><p>  ptr = (struct person*) malloc(n * sizeof(struct person));
+
+</p><p>   for(i = 0; i < n; ++i)
+ </p><p>  {
+ </p><p>      printf("Enter first name and age respectively: ");
+
+  </p><p>     // To access members of 1st struct person,
+  </p><p>     // ptr->name and ptr->age is used
+
+</p><p>       // To access members of 2nd struct person,
+</p><p>       // (ptr+1)->name and (ptr+1)->age is used
+</p><p>       scanf("%s %d", (ptr+i)->name, &(ptr+i)->age);
+</p><p>   }
+
+</p><p>   printf("Displaying Information:\n");
+</p><p>   for(i = 0; i < n; ++i)
+</p><p>       printf("Name: %s\tAge: %d\n", (ptr+i)->name, (ptr+i)->age);
+
+</p><p>   return 0;
+</p><p>}
+</p><p>When you run the program, the output will be:
+</p><p>Enter the number of persons:  2
+</p><p>Enter first name and age respectively:  Harry 24
+</p><p>Enter first name and age respectively:  Gary 32
+</p><p>Displaying Information:
+</p><p>Name: Harry	Age: 24
+</p><p>Name: Gary	Age: 32</code>
+</p><p>In the above example, n number of struct variables are created where n is entered by the user.
+</p><p>To allocate the memory for n number of struct person, we used,
+</p><p><code>ptr = (struct person*) malloc(n * sizeof(struct person));</code>
+</p><p>Then, we used the ptr pointer to access elements of person.
+
+
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Structure and Function</h1>
+</p><p>In this tutorial, you'll learn to pass struct variables as arguments to a function. You will learn to return struct from a function with the help of examples.
+
+
+</p><p>Similar to variables of built-in types, you can also pass structure variables to a function.
+
+</p><p>Passing structs to functions
+</p><p>We recommended you to learn these tutorials before you learn how to pass structs to functions.
+</p><p>C structures
+</p><p>C functions
+</p><p>User-defined Function
+</p><p>Here's how you can pass structures to a function
+</p><p><code>#include <stdio.h>
+</p><p>struct student {
+</p><p>   char name[50];
+</p><p>   int age;
+</p><p>};
+
+</p><p>// function prototype
+</p><p>void display(struct student s);
+
+</p><p>int main() {
+</p><p>   struct student s1;
+
+</p><p>   printf("Enter name: ");
+
+</p><p>   // read string input from the user until \n is entered
+</p><p>   // \n is discarded
+</p><p>   scanf("%[^\n]%*c", s1.name);
+
+</p><p>   printf("Enter age: ");
+</p><p>   scanf("%d", &s1.age);
+
+</p><p>   display(s1); // passing struct as an argument
+
+</p><p>   return 0;
+</p><p>}
+
+</p><p>void display(struct student s) {
+</p><p>   printf("\nDisplaying information\n");
+</p><p>   printf("Name: %s", s.name);
+</p><p>   printf("\nAge: %d", s.age);
+</p><p>}
+</p><p>Output
+</p><p>Enter name: Bond
+</p><p>Enter age: 13</code>
+
+</p><p>Displaying information
+</p><p>Name: Bond
+</p><p>Age: 13  
+</p><p>Here, a struct variable s1 of type struct student is created. The variable is passed to the display() function using display(s1); statement.
+
+</p><p>Return struct from a function
+
+
+
+</p><p>Here's how you can return structure from a function:
+</p><p><code>#include <stdio.h>
+</p><p>struct student
+</p><p>{
+</p><p>    char name[50];
+</p><p>    int age;
+</p><p>};
+
+</p><p>// function prototype
+</p><p>struct student getInformation();
+
+</p><p>int main()
+</p><p>{
+ </p><p>   struct student s;
+
+   </p><p> s = getInformation();
+
+ </p><p>   printf("\nDisplaying information\n");
+ </p><p>   printf("Name: %s", s.name);
+ </p><p>   printf("\nRoll: %d", s.age);
+    
+ </p><p>   return 0;
+</p><p>}
+</p><p>struct student getInformation() 
+</p><p>{
+</p><p>  struct student s1;
+
+</p><p>  printf("Enter name: ");
+</p><p>  scanf ("%[^\n]%*c", s1.name);
+
+</p><p>  printf("Enter age: ");
+</p><p>  scanf("%d", &s1.age);
+  
+</p><p>  return s1;
+</p><p>}	</code>
+</p><p>Here, the getInformation() function is called using s = getInformation(); statement. The function returns a structure of type struct student. The returned structure is displayed from the main() function.
+</p><p>Notice that, the return type of getInformation() is also struct student.
+
+</p><p>Passing struct by reference
+</p><p>You can also pass structs by reference (in a similar way like you pass variables of built-in type by reference). We suggest you to read pass by reference tutorial before you proceed.
+</p><p>During pass by reference, the memory addresses of struct variables are passed to the function.
+</p><p><code>#include <stdio.h>
+</p><p>typedef struct Complex
+</p><p>{
+ </p><p>   float real;
+</p><p>    float imag;
+</p><p>} complex;
+
+</p><p>void addNumbers(complex c1, complex c2, complex *result); 
+
+</p><p>int main()
+</p><p>{
+  </p><p>  complex c1, c2, result;
+
+  </p><p>  printf("For first number,\n");
+  </p><p>  printf("Enter real part: ");
+ </p><p>   scanf("%f", &c1.real);
+ </p><p>   printf("Enter imaginary part: ");
+ </p><p>   scanf("%f", &c1.imag);
+
+ </p><p>   printf("For second number, \n");
+ </p><p>   printf("Enter real part: ");
+ </p><p>   scanf("%f", &c2.real);
+ </p><p>   printf("Enter imaginary part: ");
+ </p><p>   scanf("%f", &c2.imag);
+
+ </p><p>   addNumbers(c1, c2, &result); 
+</p><p>    printf("\nresult.real = %.1f\n", result.real);
+</p><p>    printf("result.imag = %.1f", result.imag);
+    
+</p><p>    return 0;
+</p><p>}
+</p><p>void addNumbers(complex c1, complex c2, complex *result) 
+</p><p>{
+</p><p>     result->real = c1.real + c2.real;
+</p><p>     result->imag = c1.imag + c2.imag; 
+</p><p>}
+</p><p>Output
+</p><p>For first number,
+</p><p>Enter real part:  1.1
+</p><p>Enter imaginary part:  -2.4
+</p><p>For second number, 
+</p><p>Enter real part:  3.4
+</p><p>Enter imaginary part:  -3.2
+
+</p><p>result.real = 4.5
+</p><p>result.imag = -5.6  </code>
+</p><p>In the above program, three structure variables c1, c2 and the address of result is passed to the addNumbers() function. Here, result is passed by reference.
+</p><p>When the result variable inside the addNumbers() is altered, the result variable inside the main() function is also altered accordingly.
+
+
+
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Unions</h1>
+</p><p>In this tutorial, you'll learn about unions in C programming. More specifically, how to create unions, access its members and learn the differences between unions and structures.
+
+
+</p><p>A union is a user-defined type similar to structs in C programming. We recommend you to learn C structs before you check this tutorial.
+
+</p><p><kbd>How to define a union?</kbd>
+</p><p>We use the union keyword to define unions. Here's an example:
+</p><p>union car
+</p><p>{
+</p><p>  char name[50];
+</p><p>  int price;
+</p><p>};
+</p><p>The above code defines a derived type union car.
+
+</p><p>Create union variables
+</p><p>When a union is defined, it creates a user-defined type. However, no memory is allocated. To allocate memory for a given union type and work with it, we need to create variables.
+</p><p>Here's how we create union variables.
+</p><p>union car
+</p><p>{
+</p><p>  char name[50];
+</p><p>  int price;
+</p><p>};
+
+</p><p>int main()
+</p><p>{
+</p><p>  union car car1, car2, *car3;
+ </p><p> return 0;
+</p><p>}
+</p><p>Another way of creating union variables is:
+</p><p>union car
+</p><p>{
+</p><p>  char name[50];
+</p><p>  int price;
+</p><p>} car1, car2, *car3;
+
+</p><p>In both cases, union variables car1, car2, and a union pointer car3 of union car type are created.
+
+</p><p>Access members of a union
+</p><p>We use the . operator to access members of a union. To access pointer variables, we use also use the -> operator.
+</p><p>In the above example,
+</p><p>To access price for car1, car1.price is used.
+</p><p>To access price using car3, either (*car3).price or car3->price can be used.
+
+</p><p>Difference between unions and structures
+</p><p>Let's take an example to demonstrate the difference between unions and structures:
+</p><p><code>#include <stdio.h>
+</p><p>union unionJob
+</p><p>{
+ </p><p>  //defining a union
+ </p><p>  char name[32];
+ </p><p>  float salary;
+ </p><p>  int workerNo;
+</p><p>} uJob;
+
+</p><p>struct structJob
+</p><p>{
+</p><p>   char name[32];
+</p><p>   float salary;
+</p><p>   int workerNo;
+</p><p>} sJob;
+
+</p><p>int main()
+</p><p>{
+  </p><p> printf("size of union = %d bytes", sizeof(uJob));
+  </p><p> printf("\nsize of structure = %d bytes", sizeof(sJob));
+ </p><p>  return 0;
+</p><p>}
+</p><p>Output
+</p><p>size of union = 32
+</p><p>size of structure = 40</code>
+
+
+
+</p><p>Why this difference in the size of union and structure variables?
+</p><p>Here, the size of sJob is 40 bytes because
+</p><p>the size of name[32] is 32 bytes
+</p><p>the size of salary is 4 bytes
+</p><p>the size of workerNo is 4 bytes
+</p><p>However, the size of uJob is 32 bytes. It's because the size of a union variable will always be the size of its largest element. In the above example, the size of its largest element, (name[32]), is 32 bytes.
+
+</p><p>Only one union member can be accessed at a time 
+</p><p>You can access all members of a structure at once as sufficient memory is allocated for all members. However, it's not the case in unions. You can only access a single member of a union at one time. Let's see an example.
+</p><p><code>#include <stdio.h>
+</p><p>union Job
+</p><p>{
+ </p><p>  float salary;
+ </p><p>  int workerNo;
+</p><p>} j;
+
+</p><p>int main()
+</p><p>{
+ </p><p>  j.salary = 12.3;
+ </p><p>  j.workerNo = 100;
+
+ </p><p>  printf("Salary = %.1f\n", j.salary);
+ </p><p>  printf("Number of workers = %d", j.workerNo);
+</p><p>   return 0;
+</p><p>}
+</p><p>Output
+</p><p>Salary = 0.0
+</p><p>Number of workers = 100</code>
+</p><p class="text-muted">Notice that 12.3 was not stored in j.salary.
+
+
+
+
+
+
+
+
+
+
+
+
+</p>
+
+</div>
+
+
+<footer class="jumbotron">
+<h1 class="text-center"> Created by <kbd>rajvarma25</kbd> </h1>
+</footer>
+
+</body>
+</html>

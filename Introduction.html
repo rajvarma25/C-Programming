@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<title style="font-family:Mistral;font-size:30px">C Programming/Introduction</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="jumbotron bg-primary">
+<h1 class="text-center" style="font-family:Staatliches;font-size:50px;color:white"><kbd>C</kbd> Programming For Beginners</h1>
+</div>
+
+
+<div class="container">
+
+<h1 class="text-center" style="font-family:staatliches;text-align:center"><kbd>C</kbd> Keywords and Identifiers</h1>
+
+
+
+
+</header>
+<p>
+<div class="container">
+<p>In this tutorial, you will learn about keywords; reserved words in C programming that are part of the syntax. Also, you will learn about identifiers and how to name them.
+</p>
+
+<p><kbd>Character set</kbd>
+A character set is a set of alphabets, letters and some special characters that are valid in C language.</p>
+<p>
+<kbd>Alphabets</kbd></p>
+<p>
+<code>Uppercase: A B C ................................... X Y Z</code></p>
+<p><code>Lowercase: a b c ...................................... x y z</code></p>
+<p type="text-muted">C accepts both lowercase and uppercase alphabets as variables and functions.</p>
+<p><kbd>Digits</kbd>
+<code>0 1 2 3 4 5 6 7 8 9</code></p>
+
+<p>
+<kbd>Special Characters C Programming</kbd><p>
+
+	
+<code>
+,			
+<			
+>			
+.			
+_			
+(			
+)			
+;			
+$			
+:			
+%			
+[			
+]			
+#			
+?			
+'			
+&			
+{			
+}			
+"			
+^			
+!			
+*			
+/			
+|
+-			
+\			
+~			
++</code>	
+</p>
+</p>
+<p>
+White space Characters-<kbd>
+Blank space, newline, horizontal tab, carriage, return and form feed.</kbd></p>
+
+<p> <kbd>C Keywords</kbd>
+Keywords are predefined, reserved words used in programming that have special meanings to the compiler. Keywords are part of the syntax and they cannot be used as an identifier. For example:
+int money;
+
+
+
+Here, int is a keyword that indicates money is a variable of type int (integer).
+As C is a case sensitive language, all keywords must be written in lowercase. Here is a list of all keywords allowed in ANSI C.
+</p>
+	
+<p>C Keywords - 
+
+	<kbd>
+
+		
+
+			
+auto,
+
+			
+double,
+
+			
+int,
+
+			
+struct,
+
+		
+
+		
+
+			
+break,
+
+			
+else,
+
+			
+long,
+
+			
+switch,
+
+		
+
+		
+
+			
+case,
+
+			
+enum,
+
+			
+register,
+
+			
+typedef,
+
+		
+
+		
+
+			
+char,
+
+			
+extern,
+
+			
+return,
+
+			
+union,
+
+		
+
+		
+
+			
+continue,
+
+			
+for,
+
+			
+signed,
+
+			
+void,
+
+		
+
+		
+
+			
+do,
+
+			
+if,
+
+			
+static,
+
+			
+while,
+
+		
+
+		
+
+			
+default,
+
+			
+goto,
+
+			
+sizeof,
+
+			
+volatile,
+
+		
+
+		
+
+			
+const,
+
+			
+float,
+
+			
+short,
+
+			
+unsigned
+
+		</kbd>
+
+	
+
+All these keywords, their syntax, and application will be discussed in their respective topics. However, if you want a brief overview of these keywords without going further, visit List of all keywords in C programming.
+</p>
+<p><kbd>C Identifiers</kbd>
+Identifier refers to name given to entities such as variables, functions, structures etc.
+Identifiers must be unique. They are created to give a unique name to an entity to identify it during the execution of the program. For example:
+int money;
+double accountBalance;
+Here, money and accountBalance are identifiers.
+Also remember, identifier names must be different from keywords. You cannot use int as an identifier because int is a keyword.
+</kbd>
+
+<p><kbd>Rules for naming identifiers</kbd>
+A valid identifier can have letters (both uppercase and lowercase letters), digits and underscores.
+The first letter of an identifier should be either a letter or an underscore.
+You cannot use keywords as identifiers.</p>
+<p>There is no rule on how long an identifier can be. However, you may run into problems in some compilers if the identifier is longer than 31 characters.
+You can choose any name as an identifier if you follow the above rule, however, give meaningful names to identifiers that make sense.
+</p>
+</p>
+</div>
+</p>
+
+<p>
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches;text-align:center"><kbd>C</kbd> Variables and Constant</h1>
+<p>
+
+In this tutorial, you will learn about variables and rules for naming a variable. You will also learn about different literals in C programming and how to create constants.
+</p>
+<p>
+<kbd>Variables</kbd></p>
+<p>In programming, a variable is a container (storage area) to hold data.
+To indicate the storage area, each variable should be given a unique name (identifier). Variable names are just the symbolic representation of a memory location. For example:</p>
+<code><p>int playerScore = 95;</p>
+<p>Here, playerScore is a variable of int type. Here, the variable is assigned an integer value 95.</p>
+<p>The value of a variable can be changed, hence the name variable.</p>
+<p>char ch = 'a';
+// some code
+</p><p>ch = 'l';</p></code>
+
+<p><kbd>Rules for naming a variable</kbd></p>
+<p>A variable name can only have letters (both uppercase and lowercase letters), digits and underscore.
+The first letter of a variable should be either a letter or an underscore.
+There is no rule on how long a variable name (identifier) can be. However, you may run into problems in some compilers if the variable name is longer than 31 characters.
+Note: You should always try to give meaningful names to variables. For example: firstName is a better variable name than fn.
+C is a strongly typed language. This means that the variable type cannot be changed once it is declared. For example:</p>
+<p><code>int number = 5;      // integer variable
+number = 5.5;        // error
+double number;       // error</code></p>
+<p>Here, the type of number variable is int. You cannot assign a floating-point (decimal) value 5.5 to this variable. Also, you cannot redefine the data type of the variable to double. By the way, to store the decimal values in C, you need to declare its type to either double or float.
+Visit this page to learn more about different types of data a variable can store.</p>
+
+<p><kbd>Literals</kbd>-
+Literals are data used for representing fixed values. They can be used directly in the code. For example: 1, 2.5, 'c' etc.
+Here, 1, 2.5 and 'c' are literals. Why? You cannot assign different values to these terms.</p>
+
+<p><kbd>Integers</kbd>-
+An integer is a numeric literal(associated with numbers) without any fractional or exponential part. There are three types of integer literals in C programming:</p><p>
+
+<kbd>decimal (base 10),
+octal (base 8),
+hexadecimal (base 16)</kbd></p>
+
+
+<p>
+<kbd>For example</kbd>:</p>
+<p><code>Decimal: 0, -9, 22 etc
+Octal: 021, 077, 033 etc
+Hexadecimal: 0x7f, 0x2a, 0x521 etc</code></p>
+<p>In C programming, octal starts with a 0, and hexadecimal starts with a 0x.</p>
+
+<p><kbd>Floating-point Literals</kbd>-
+A floating-point literal is a numeric literal that has either a fractional form or an exponent form. For example:</p>
+<p><code>-2.0</p>
+<p>0.0000234</p>
+<p>-0.22E-5</p>
+<p>Note: E-5 = 10-5</code></p>
+
+<p><kbd>Characters</kbd></p>-
+<p>A character literal is created by enclosing a single character inside single quotation marks. For example: <code>'a', 'm', 'F', '2', '}'</code> etc.</p>
+
+<p><kbd>Escape Sequences</kbd></p>-
+<p>Sometimes, it is necessary to use characters that cannot be typed or has special meaning in C programming. For example: newline(enter), tab, question mark etc.
+In order to use these characters, escape sequences are used.</p>
+
+
+<p>
+<kbd>Character</kbd>
+<p><code>\b-Backspace,\f-Form feed,\n-Newline,\r-Return
+,\t-Horizontal tab
+,\v-Vertical tab
+,\\-Backslash
+,\'-Single quotation mark
+,\"-Double quotation mark
+,\?-Question mark			
+,\0-Null character
+</code></p>
+<p><kbd>For example</kbd> :</p><p><code>\n is used for a newline. The backslash \ causes escape from the normal way the characters are handled by the compiler.</code></p>
+
+<p><kbd>String Literals</kbd> -</p>
+<p>A string literal is a sequence of characters enclosed in double-quote marks. For example:</p>
+<p><code>"good"                  //string constant</p></code>
+<p><code>""                     //null string constant</p></code>
+<p><code>"      "               //string constant of six white space</p></code>
+<p><code>"x"                    //string constant having a single character.</p></code>
+<p><code>"Earth is round\n"         //prints string with a newline</p></code>
+
+<p><kbd>Constants</kbd></p> -
+<p>If you want to define a variable whose value cannot be changed, you can use the const keyword. This will create a constant. For example,</p>
+<p><code>const double PI = 3.14;</p></code>
+<p>Notice, we have added keyword const.</p>
+<p>Here, PI is a symbolic constant; its value cannot be changed.</p>
+<p><code>const double PI = 3.14;</p></code>
+<p><code>PI = 2.9; //Error</p></code>
+
+<p>You can also define a constant using the #define preprocessor directive. We will learn about it in C Macros tutorial.</p>
+
+</div>
+</p>
+
+
+<p>
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches;text-align:center"><kbd>C</kbd> Data Types</h1>
+<p>
+
+<p>In this tutorial, you will learn about basic data types such as int, float, char etc. in C programming.</p>
+
+
+<p>In C programming, data types are declarations for variables. This determines the type and size of data associated with variables. For example,</p>
+<code><p>int myVar;</p></code>
+<p>Here, myVar is a variable of int (integer) type. The size of int is 4 bytes.</p>
+
+<p><kbd>Basic types</kbd></p>
+<p>Here's a table containing commonly used types in C programming for quick access.
+
+	
+
+		
+<table class="table  table-striped">
+	<thead>
+<tr>	
+<th>Type</th>
+
+			
+<th>Size (bytes)</th>
+
+			
+<th>Format Specifier</th>
+
+</tr>
+</thead>
+
+<tbody>
+
+		
+
+<tr>	
+
+	
+
+		
+
+			
+<td>int</td>
+
+			
+<td>at least 2, usually 4</td>
+
+			
+<td>%d</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>char</td>
+
+			
+<td>1</td>
+
+			
+<td>%c</td>
+
+		
+
+</tr>		
+
+<tr>
+			
+<td>float</td>
+
+			
+<td>4</td>
+
+			
+<td>%f</td>
+
+		
+</tr>
+		
+<tr>
+			
+
+<td>double</td>
+
+			
+<td>8</td>
+
+			
+<td>%lf</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>short int</td>
+
+			
+<td>2 usually</td>
+
+			
+<td>%hd</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned int</td>
+
+			
+<td>at least 2, usually 4</td>
+
+			
+<td>%u</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>long int</td>
+
+			
+<td>at least 4, usually 8</td>
+
+			
+<td>%li</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>long long int</td>
+
+			
+<td>at least 8</td>
+
+			
+<td>%lli</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned long int</td>
+
+			
+<td>at least 4</td>
+
+			
+<td>%lu</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned long long int</td>
+
+			
+<td>at least 8</td>
+
+			
+<td>%llu</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>signed char</td>
+
+			
+<td>1</td>
+
+			
+<td>%c</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned char</td>
+
+			
+<td>1</td>
+
+			
+<td>%c</td>
+
+		
+</tr>
+	<tr>	
+
+			
+<td>long double</td>
+
+			
+<td>at least 10, usually 12 or 16</td>
+
+			
+<td>%Lf</td>
+</tr>
+		
+
+</tbody>
+</table>
+
+	
+<p>
+<p>
+<kbd>int</kbd>
+Integers are whole numbers that can have both zero, positive and negative values but no decimal values. For example, 0, -5, 10
+We can use int for declaring an integer variable.</p>
+<p><code>int id;</code>
+Here, id is a variable of type integer.
+You can declare multiple variables at once in C programming. For example,
+</p><p><code>int id, age;</code></p>
+<p>The size of int is usually 4 bytes (32 bits). And, it can take 232 distinct states from -2147483648 to 2147483647.</p>
+
+<code><p>float and double</p>
+<p>float and double are used to hold real numbers.</p>
+<p>float salary;</p>
+<p>double price;</p></code>
+<p>In C, floating-point numbers can also be represented in exponential. For example,</p>
+<p><code>float normalizationFactor = 22.442e2;</code></p>
+
+
+
+<p><kbd>What's the difference between float and double?</kbd></p>
+<p>The size of float (single precision float data type) is 4 bytes. And the size of double (double precision float data type) is 8 bytes.</p>
+
+<p><kbd>char</kbd></p>
+<p>Keyword char is used for declaring character type variables. For example,</p>
+<p><code>char test = 'h';</code></p>
+<p>The size of the character variable is 1 byte.</p>
+
+<p><kbd>void</kbd></p>
+<p>void is an incomplete type. It means "nothing" or "no type". You can think of void as absent.
+For example, if a function is not returning anything, its return type should be void.
+Note that, you cannot create variables of void type.
+
+short and long
+<p>If you need to use a large number, you can use a type specifier long. Here's how:</p>
+<code><p>long a;</p>
+<p>long long b;</p>
+<p>long double c;</p></code>
+<p>Here variables a and b can store integer values. And, c can store a floating-point number.
+If you are sure, only a small integer ([−32,767, +32,767] range) will be used, you can use short.</p>
+<p><code>short d;</code></p>
+<p>You can always check the size of a variable using the sizeof() operator.</p>
+<code><p>#include <stdio.h></p>      
+<p>int main() {</p>
+  <p>short a;</p>
+  <p>long b;</p>
+  <p>long long c;</p>
+  <p>long double d;</p>
+
+  <p>printf("size of short = %d bytes\n", sizeof(a));</p>
+  <p>printf("size of long = %d bytes\n", sizeof(b));</p>
+  <p>printf("size of long long = %d bytes\n", sizeof(c));</p>
+<p>printf("size of long double= %d bytes\n", sizeof(d));</p>
+<p>return 0;</p>
+}</code>
+</p>
+<p><kbd>signed and unsigned</kbd>
+In C, signed and unsigned are type modifiers. You can alter the data storage of a data type by using them. For example,
+<code>unsigned int x;
+int y;</code>
+Here, the variable x can hold only zero and positive values because we have used the unsigned modifier.
+Considering the size of int is 4 bytes, variable y can hold values from -231 to 231-1, whereas variable x can hold values from 0 to 232-1.
+</p>
+<p>Other data types defined in C programming are:</p>
+<p><kbd>bool Type
+Enumerated type
+Complex types</kbd></p></p>
+
+<p><kbd>Derived Data Types</kbd></p>
+<p>Data types that are derived from fundamental data types are derived types. For example: arrays, pointers, function types, structures, etc.
+We will learn about these derived data types in later tutorials.</p>
+
+
+</p>
+</div>
+</p>
+
+<p>
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches;text-align:center"><kbd>C</kbd> Input and Output</h1>
+<p>
+
+<p>In this tutorial, you will learn to use scanf() function to take input from the user, and printf() function to display output to the user.
+</p>
+
+<p><kbd>C Output</kbd></p>
+<p>In C programming, printf() is one of the main output function. The function sends formatted output to the screen. For example,
+</p>
+<p><kbd>Example 1: C Output</kbd></p>
+<code><p>#include <stdio.h></p>    
+<p>int main()</p>
+<p>{ </p>
+   <p> // Displays the string inside quotations</p>
+   <p> printf("C Programming");</p>
+   <p> return 0;</p>
+<p>}</p>
+<p>Output</p>
+<p>C Programming</p></code>
+<p>How does this program work?</p>
+<p>All valid C programs must contain the main() function. The code execution begins from the start of the main() function.</p>
+<p>The printf() is a library function to send formatted output to the screen. The function prints the string inside quotations.</p>
+<p>To use printf() in our program, we need to include stdio.h header file using the #include <stdio.h> statement.</p>
+<p>The return 0; statement inside the main() function is the "Exit status" of the program. It's optional.</p>
+
+<p>Example 2: Integer Output</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+   <p> int testInteger = 5;</p>
+   <p> printf("Number = %d", testInteger);</p>
+    <p>return 0;</p>
+<p>}</p>
+<p>Output</p>
+<p>Number = 5</p>
+<p>We use %d format specifier to print int types. Here, the %d inside the quotations will be replaced by the value of testInteger.</p></code>
+
+<p>Example 3: float and double Output</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+   <p> float number1 = 13.5;</p>
+   <p> double number2 = 12.4;</p>
+
+   <p> printf("number1 = %f\n", number1);</p>
+   <p> printf("number2 = %lf", number2);</p>
+   <p> return 0;</p>
+<p>}</p>
+<p>Output</p>
+<p>number1 = 13.500000</p>
+<p>number2 = 12.400000</p>
+<p>To print float, we use %f format specifier. Similarly, we use %lf to print double values.</p>
+</code>
+
+<p>Example 4: Print Characters</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+   <p> char chr = 'a';    </p>
+   <p> printf("character = %c.", chr);</p>  
+   <p> return 0;</p>
+<p>} </p>
+<p>Output</p>
+<p>character = a</p>
+</code>
+
+
+<p>To print char, we use %c format specifier.</p>
+
+<p>C Input</p>
+<p>In C programming, scanf() is one of the commonly used function to take input from the user. The scanf() function reads formatted input from the standard input such as keyboards.</p>
+
+<p>Example 5: Integer Input/Output</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+   <p> int testInteger;</p>
+   <p> printf("Enter an integer: ");</p>
+   <p> scanf("%d", &testInteger);  </p>
+   <p> printf("Number = %d",testInteger);</p>
+   <p> return 0;</p>
+<p>}</p>
+<p>Output</p>
+<p>Enter an integer: 4</p>
+<p>Number = 4</p></code>
+
+<p>Here, we have used %d format specifier inside the scanf() function to take int input from the user. When the user enters an integer, it is stored in the testInteger variable.</p>
+<p>Notice, that we have used &testInteger inside scanf(). It is because &testInteger gets the address of testInteger, and the value entered by the user is stored in that address.</p>
+
+<p>Example 6: Float and Double Input/Output</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+   <p> float num1;</p>
+   <p> double num2;</p>
+
+   <p> printf("Enter a number: ");</p>
+   <p> scanf("%f", &num1);</p>
+   <p> printf("Enter another number: ");</p>
+   <p> scanf("%lf", &num2);</p>
+
+   <p> printf("num1 = %f\n", num1);</p>
+   <p> printf("num2 = %lf", num2);</p>
+
+   <p> return 0;</p>
+<p>}</p>
+<p>Output</p>
+<p>Enter a number: 12.523</p>
+<p>Enter another number: 10.2</p>
+<p>num1 = 12.523000</p>
+<p>num2 = 10.200000</p>
+<p>We use %f and %lf format specifier for float and double respectively.</p>
+</code>
+
+<p>Example 7: C Character I/O</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+ <p>   char chr;</p>
+ <p>   printf("Enter a character: ");              </p>
+  <p> scanf("%c",&chr);     </p>
+  <p>  printf("You entered %c.", chr);</p>  
+   <p> return 0;</p>
+<p>}   </p>
+<p>Output</p>
+<p>Enter a character: g</p>
+<p>You entered g.</p>
+</code>
+<p>When a character is entered by the user in the above program, the character itself is not stored. Instead, an integer value (ASCII value) is stored.</p>
+<p>And when we display that value using %c text format, the entered character is displayed. If we use %d to display the character, it's ASCII value is printed.</p>
+
+<p>Example 8: ASCII Value</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+    <p>char chr;</p>
+   <p> printf("Enter a character: ");</p>
+    <p>scanf("%c", &chr);     </p>
+
+   <p> // When %c is used, a character is displayed</p>
+   <p> printf("You entered %c.\n",chr);  </p>
+
+   <p> // When %d is used, ASCII value is displayed</p>
+   <p> printf("ASCII value is % d.", chr); </p> 
+   <p> return 0;</p>
+<p>}</p>
+<p>Output</p>
+<p>Enter a character: g</p>
+<p>You entered g.</p>
+<p>ASCII value is 103.</p></code>
+
+<p>I/O Multiple Values</p>
+<p>Here's how you can take multiple inputs from the user and display them.</p>
+<code><p>#include <stdio.h></p>
+<p>int main()</p>
+<p>{</p>
+  <p>  int a;</p>
+   <p> float b;</p>
+
+  <p>  printf("Enter integer and then a float: ");</p>
+  
+  <p>  // Taking multiple inputs</p>
+  <p> scanf("%d%f", &a, &b);</p>
+
+  <p>  printf("You entered %d and %f", a, b); </p> 
+   <p> return 0;</p>
+<p> }</p>
+<p>Output</p>
+<p>Enter integer and then a float: -3</p>
+<p>3.4</p>
+<p>You entered -3 and 3.400000</p>
+
+<p>Format Specifiers for I/O</p>
+<p>As you can see from the above examples, we use</p>
+<p>d for int</p>
+<p>%f for float</p>
+<p>%lf for double</p>
+<p>%c for char</p>
+<p>Here's a list of commonly used C data types and their format specifiers.</p>
+</code>
+
+
+<div class="table table-striped">
+	
+<table>
+		
+<thead>
+			
+<th>Data Type</th>
+
+			
+<th>Format Specifier</th>
+
+		
+</thead>
+
+<tbody>
+	
+
+	
+
+		
+<tr>
+			
+<td>int</td>
+
+			
+<td>%d</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>char</td>
+
+			
+<td>%c</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>float</td>
+
+			
+<td>%f</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>double</td>
+
+			
+<td>%lf</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>short int</td>
+
+			
+<td>%hd</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned int</td>
+
+			
+<td>%u</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>long int</td>
+
+			
+<td>%li</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>long long int</td>
+
+			
+<td>%lli</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned long int</td>
+
+			
+<td>%lu</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned long long int</td>
+
+			
+<td>%llu</td>
+
+		
+<tr>
+		
+</tr>
+			
+<td>signed char</td>
+
+			
+<td>%c</td>
+
+		
+</tr>
+		
+<tr>
+			
+<td>unsigned char</td>
+
+<td>%c</td>
+
+</tr>
+		
+<tr>
+			
+<td>long double</td>
+
+			
+<td>%Lf</td>
+
+
+</tr>
+<tbody>
+</table>
+</div>
+
+</p>
+</div>
+</p>
+
+<p>
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches;text-align:center"><kbd>C</kbd> Operators</h1>
+<p>
+
+<p>An operator is a symbol that tells the compiler to perform specific mathematical or logical functions. C language is rich in built-in operators and provides the following types of operators −
+<p>Arithmetic Operators
+Relational Operators
+Logical Operators
+Bitwise Operators
+Assignment Operators
+Misc Operators</p>
+<p>We will, in this chapter, look into the way each operator works.
+</p><p>Arithmetic Operators
+</p><p>The following table shows all the arithmetic operators supported by the C language. Assume variable A holds 10 and variable B holds 20 then −
+</p><p>Show Examples
+</p><p>Operator
+</p><p>Description
+</p><p>Example
+</p><p>+
+</p><p>Adds two operands.
+</p><p>A + B = 30
+</p><p>−
+</p><p>Subtracts second operand from the first.
+</p><p>A − B = -10
+</p><p>*
+</p><p>Multiplies both operands.
+</p><p>A * B = 200
+</p><p>/
+</p><p>Divides numerator by de-numerator.
+</p><p>B / A = 2
+</p><p>%
+</p><p>Modulus Operator and remainder of after an integer division.
+</p><p>B % A = 0
+</p><p>++
+</p><p>Increment operator increases the integer value by one.
+</p><p>A++ = 11
+</p><p>--
+</p><p>Decrement operator decreases the integer value by one.
+</p><p>A-- = 9
+</p><p>Relational Operators
+</p><p>The following table shows all the relational operators supported by C. Assume variable A holds 10 and variable B holds 20 then −
+</p><p>Show Examples
+</p><p>Operator
+</p><p>Description
+</p><p>Example
+</p><p>==
+</p><p>Checks if the values of two operands are equal or not. If yes, then the condition becomes true.
+</p><p>(A == B) is not true. 
+</p><p>!=
+</p><p>Checks if the values of two operands are equal or not. If the values are not equal, then the condition becomes true.
+</p><p>(A != B) is true.
+</p><p>>
+</p><p>Checks if the value of left operand is greater than the value of right operand. If yes, then the condition becomes true.
+</p><p>(A > B) is not true.
+</p><p><
+</p><p>Checks if the value of left operand is less than the value of right operand. If yes, then the condition becomes true.
+</p><p>(A < B) is true.
+</p><p>>=
+</p><p>Checks if the value of left operand is greater than or equal to the value of right operand. If yes, then the condition becomes true.
+</p><p>(A >= B) is not true.
+</p><p><=
+</p><p>Checks if the value of left operand is less than or equal to the value of right operand. If yes, then the condition becomes true.
+</p><p>(A <= B) is true.
+</p><p>Logical Operators
+</p><p>Following table shows all the logical operators supported by C language. Assume variable A holds 1 and variable B holds 0, then −
+</p><p>Show Examples
+</p><p>Operator
+</p><p>Description
+</p><p>Example
+</p><p>&&
+</p><p>Called Logical AND operator. If both the operands are non-zero, then the condition becomes true.
+</p><p>(A && B) is false.
+</p><p>||
+</p><p>Called Logical OR Operator. If any of the two operands is non-zero, then the condition becomes true.
+</p><p>(A || B) is true.
+</p><p>!
+</p><p>Called Logical NOT Operator. It is used to reverse the logical state of its operand. If a condition is true, then Logical NOT operator will make it false.
+</p><p>!(A && B) is true.
+</p><p>Bitwise Operators
+</p><p>Bitwise operator works on bits and perform bit-by-bit operation. The truth tables for &, |, and ^ is as follows −
+</p><p><code>p
+</p><p>q
+</p><p>p & q
+</p><p>p | q
+</p><p>p ^ q
+</p><p>0
+</p><p>0
+</p><p>0
+</p><p>0
+</p><p>0
+</p><p>0
+</p><p>1
+</p><p>0
+</p><p>1
+</p><p>1
+</p><p>1
+</p><p>1
+</p><p>1
+</p><p>1
+</p><p>0
+</p><p>1
+</p><p>0
+</p><p>0
+</p><p>1
+</p><p>1
+</p><p>Assume A = 60 and B = 13 in binary format, they will be as follows −
+</p><p>A = 0011 1100
+</p><p>B = 0000 1101
+</p><p>-----------------
+</p><p>A&B = 0000 1100
+</p><p>A|B = 0011 1101
+</p><p>A^B = 0011 0001
+</p><p>~A = 1100 0011</code>
+</p><p>The following table lists the bitwise operators supported by C. Assume variable 'A' holds 60 and variable 'B' holds 13, then −
+</p><p>Show Examples
+</p><p>Operator
+</p><p>Description
+</p><p>Example
+</p><p>&
+</p><p>Binary AND Operator copies a bit to the result if it exists in both operands. 
+</p><p>(A & B) = 12, i.e., 0000 1100
+</p><p>|
+</p><p>Binary OR Operator copies a bit if it exists in either operand.
+</p><p>(A | B) = 61, i.e., 0011 1101
+</p><p>^
+</p><p>Binary XOR Operator copies the bit if it is set in one operand but not both. 
+</p><p>(A ^ B) = 49, i.e., 0011 0001
+</p><p>~
+</p><p>Binary One's Complement Operator is unary and has the effect of 'flipping' bits.
+</p><p>(~A ) = ~(60), i.e,. -0111101
+</p><p><<
+</p><p>Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.
+</p><p>A << 2 = 240 i.e., 1111 0000
+</p><p>>>
+</p><p>Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.
+</p><p>A >> 2 = 15 i.e., 0000 1111
+</p><p>Assignment Operators
+</p><p>The following table lists the assignment operators supported by the C language −
+</p><p>Show Examples
+</p><p>Operator
+</p><p>Description
+</p><p>Example
+</p><p>=
+</p><p>Simple assignment operator. Assigns values from right side operands to left side operand
+</p><p>C = A + B will assign the value of A + B to C
+</p><p>+=
+</p><p>Add AND assignment operator. It adds the right operand to the left operand and assign the result to the left operand.
+</p><p>C += A is equivalent to C = C + A
+</p><p>-=
+</p><p>Subtract AND assignment operator. It subtracts the right operand from the left operand and assigns the result to the left operand.
+</p><p>C -= A is equivalent to C = C - A
+</p><p>*=
+</p><p>Multiply AND assignment operator. It multiplies the right operand with the left operand and assigns the result to the left operand.
+</p><p>C *= A is equivalent to C = C * A
+</p><p>/=
+</p><p>Divide AND assignment operator. It divides the left operand with the right operand and assigns the result to the left operand.
+</p><p>C /= A is equivalent to C = C / A
+</p><p>%=
+</p><p>Modulus AND assignment operator. It takes modulus using two operands and assigns the result to the left operand.
+</p><p>C %= A is equivalent to C = C % A
+</p><p><<=
+</p><p>Left shift AND assignment operator.
+</p><p>C <<= 2 is same as C = C << 2
+</p><p>>>=
+</p><p>Right shift AND assignment operator.
+</p><p>C >>= 2 is same as C = C >> 2
+</p><p>&=
+</p><p>Bitwise AND assignment operator.
+</p><p>C &= 2 is same as C = C & 2
+</p><p>^=
+</p><p>Bitwise exclusive OR and assignment operator.
+</p><p>C ^= 2 is same as C = C ^ 2
+</p><p>|=
+</p><p>Bitwise inclusive OR and assignment operator.
+</p><p>C |= 2 is same as C = C | 2
+</p><p>Misc Operators ↦ sizeof & ternary
+</p><p>Besides the operators discussed above, there are a few other important operators including sizeof and ? : supported by the C Language.
+</p><p>Show Examples
+</p><p>Operator
+</p><p>Description
+</p><p>Example
+</p><p>sizeof()
+</p><p>Returns the size of a variable.
+</p><p>sizeof(a), where a is integer, will return 4.
+</p><p>&
+</p><p>Returns the address of a variable.
+</p><p>&a; returns the actual address of the variable.
+</p><p>*
+</p><p>Pointer to a variable.
+</p><p>*a;
+</p><p>? :
+</p><p>Conditional Expression.
+</p><p>If Condition is true ? then value X : otherwise value Y
+</p><p>Operators Precedence in C
+</p><p>Operator precedence determines the grouping of terms in an expression and decides how an expression is evaluated. Certain operators have higher precedence than others; for example, the multiplication operator has a higher precedence than the addition operator.
+</p><p>For example, x = 7 + 3 * 2; here, x is assigned 13, not 20 because operator * has a higher precedence than +, so it first gets multiplied with 3*2 and then adds into 7.
+</p><p>Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.
+
+</p>
+</div>
+</p>
+
+<p>
+<div class="container">
+<p>
+
+</p>
+</div>
+</p>
+
+<footer class="jumbotron">
+<h1 class="text-center"> Created by <kbd>rajvarma25</kbd> </h1>
+</footer>
+
+</body>
+
+
+
+
+
+
+</html>

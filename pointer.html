@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<title style="font-family:Mistral;font-size:30px">C Programming/Pointer</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="jumbotron bg-primary">
+<h1 class="text-center" style="font-family:Staatliches;font-size:50px;color:white"><kbd>C</kbd> Programming For Beginners</h1>
+</div>
+
+
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches"> <kbd>C</kbd> Pointer</h1>
+
+</div>
+</div>
+</div>
+</header>
+
+
+
+<div class="container">
+
+<p>
+
+
+
+
+</p><p>In this tutorial, you'll learn about pointers; what pointers are, how do you use them and the common mistakes you might face when working with them with the help of examples.
+
+
+</p><p>Pointers are powerful features of C and C++ programming. Before we learn pointers, let's learn about addresses in C programming.
+
+</p><p><kbd>Address in C</kbd>
+</p><p>If you have a variable var in your program, &var will give you its address in the memory.
+</p><p>We have used address numerous times while using the scanf() function.
+</p><p>scanf("%d", &var);
+</p><p>Here, the value entered by the user is stored in the address of var variable. Let's take a working example.
+</p><p><code>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+ </p><p> int var = 5;
+ </p><p> printf("var: %d\n", var);
+
+</p><p>  // Notice the use of & before var
+ </p><p> printf("address of var: %p", &var);  
+</p><p>  return 0;
+</p><p>}
+</p><p>Output
+</p><p>var: 5 
+</p><p>address of var: 2686778</code>
+</p><p>Note: You will probably get a different address when you run the above code.
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Pointers</h1>
+</p><p>Pointers (pointer variables) are special variables that are used to store addresses rather than values.
+</p><p>Pointer Syntax
+</p><p>Here is how we can declare pointers.
+</p><p>int* p;
+</p><p>Here, we have declared a pointer p of int type.
+</p><p>You can also declare pointers in these ways.
+</p><p>int *p1;
+</p><p>int * p2;
+
+</p><p>Let's take another example of declaring pointers.
+</p><p>int* p1, p2;
+</p><p>Here, we have declared a pointer p1 and a normal variable p2.
+
+</p><p>Assigning addresses to Pointers
+</p><p>Let's take an example.
+</p><p>int* pc, c;
+</p><p>c = 5;
+</p><p>pc = &c;
+</p><p>Here, 5 is assigned to the c variable. And, the address of c is assigned to the pc pointer.
+
+</p><p>Get Value of Thing Pointed by Pointers
+</p><p>To get the value of the thing pointed by the pointers, we use the * operator. For example:
+</p><p>int* pc, c;
+</p><p>c = 5;
+</p><p>pc = &c;
+</p><p>printf("%d", *pc);   // Output: 5
+</p><p>Here, the address of c is assigned to the pc pointer. To get the value stored in that address, we used *pc.
+</p><p>Note: In the above example, pc is a pointer, not *pc. You cannot and should not do something like *pc = &c;
+</p><p>By the way, * is called the dereference operator (when working with pointers). It operates on a pointer and gives the value stored in that pointer.
+
+</p><p>Changing Value Pointed by Pointers
+</p><p>Let's take an example.
+</p><p>int* pc, c;
+</p><p>c = 5;
+</p><p>pc = &c;
+</p><p>c = 1;
+</p><p>printf("%d", c);    // Output: 1
+</p><p>printf("%d", *pc);  // Ouptut: 1
+</p><p>We have assigned the address of c to the pc pointer.
+</p><p>Then, we changed the value of c to 1. Since pc and the address of c is the same, *pc gives us 1.
+</p><p>Let's take another example.
+</p><p>int* pc, c;
+</p><p>c = 5;
+</p><p>pc = &c;
+</p><p>*pc = 1;
+</p><p>printf("%d", *pc);  // Ouptut: 1
+</p><p>printf("%d", c);    // Output: 1
+</p><p>We have assigned the address of c to the pc pointer.
+</p><p>Then, we changed *pc to 1 using *pc = 1;. Since pc and the address of c is the same, c will be equal to 1.
+</p><p>Let's take one more example.
+</p><p>int* pc, c, d;
+</p><p>c = 5;
+</p><p>d = -15;
+
+</p><p>pc = &c; printf("%d", *pc); // Output: 5
+</p><p>pc = &d; printf("%d", *pc); // Ouptut: -15
+</p><p>Initially, the address of c is assigned to the pc pointer using pc = &c;. Since c is 5, *pc gives us 5.
+
+
+
+</p><p>Then, the address of d is assigned to the pc pointer using pc = &d;. Since d is -15, *pc gives us -15.
+
+</p><p>Example: Working of Pointers
+</p><p>Let's take a working example.
+</p><p><code>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+</p><p>   int* pc, c;
+   
+</p><p>   c = 22;
+</p><p>   printf("Address of c: %p\n", &c);
+</p><p>   printf("Value of c: %d\n\n", c);  // 22
+   
+</p><p>   pc = &c;
+</p><p>   printf("Address of pointer pc: %p\n", pc);
+</p><p>   printf("Content of pointer pc: %d\n\n", *pc); // 22
+   
+</p><p>   c = 11;
+</p><p>   printf("Address of pointer pc: %p\n", pc);
+ </p><p>  printf("Content of pointer pc: %d\n\n", *pc); // 11
+   
+ </p><p>  *pc = 2;
+ </p><p>  printf("Address of c: %p\n", &c);
+ </p><p>  printf("Value of c: %d\n\n", c); // 2
+ </p><p>  return 0;
+</p><p>}
+</p><p>Output
+</p><p>Address of c: 2686784
+</p><p>Value of c: 22
+
+</p><p>Address of pointer pc: 2686784
+</p><p>Content of pointer pc: 22
+
+</p><p>Address of pointer pc: 2686784
+</p><p>Content of pointer pc: 11
+
+</p><p>Address of c: 2686784
+</p><p>Value of c: 2
+
+</p><p>Explanation of the program
+</p><p>int* pc, c;</code>
+
+
+</p><p>Here, a pointer pc and a normal variable c, both of type int, is created.
+</p><p>Since pc and c are not initialized at initially, pointer pc points to either no address or a random address. And, variable c has an address but contains random garbage value.
+ 
+</p><p>c = 22;
+
+
+</p><p>This assigns 22 to the variable c. That is, 22 is stored in the memory location of variable c.
+ 
+</p><p>pc = &c;
+
+
+</p><p>This assigns the address of variable c to the pointer pc.
+ 
+</p><p>c = 11;
+
+
+</p><p>This assigns 11 to variable c.
+ 
+</p><p>*pc = 2;
+
+
+</p><p>This change the value at the memory location pointed by the pointer pc to 2.
+
+</p><p>Common mistakes when working with pointers
+</p><p>Suppose, you want pointer pc to point to the address of c. Then,
+</p><p>int c, *pc;
+
+</p><p>// pc is address but c is not
+</p><p>pc = c; // Error
+
+</p><p>// &c is address but *pc is not
+</p><p>*pc = &c; // Error
+
+</p><p>// both &c and pc are addresses
+</p><p>pc = &c;
+
+</p><p>// both c and *pc values 
+</p><p>*pc = c;
+</p><p>Here's an example of pointer syntax beginners often find confusing.
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+ </p><p>  int c = 5;
+ </p><p>  int *p = &c;
+
+ </p><p>  printf("%d", *p);  // 5
+ </p><p>  return 0; 
+</p><p>}</code>
+</p><p>Why didn't we get an error when using int *p = &c;?
+</p><p>It's because
+</p><p>int *p = &c;
+</p><p>is equivalent to
+</p><p>int *p:
+</p><p>p = &c;
+</p><p>In both cases, we are creating a pointer p (not *p) and assigning &c to it.
+</p><p>To avoid this confusion, we can use the statement like this:
+</p><p>int* p = &c;
+
+</p><p>Now you know what pointers are, you will learn how pointers are related to arrays in the next tutorial.
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Arrays and Pointers</h1>
+</p><p>In this tutorial, you'll learn about the relationship between arrays and pointers in C programming. You will also learn to access array elements using pointers.
+
+
+</p><p>Before you learn about the relationship between arrays and pointers, be sure to check these two topics:
+</p><p>C Arrays
+</p><p>C Pointers
+
+</p><p>Relationship Between Arrays and Pointers
+</p><p>An array is a block of sequential data. Let's write a program to print addresses of array elements.
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+ </p><p>  int x[4];
+ </p><p>  int i;
+
+</p><p>   for(i = 0; i < 4; ++i) {
+   </p><p>   printf("&x[%d] = %p\n", i, &x[i]);
+ </p><p>  }
+
+ </p><p>  printf("Address of array x: %p", x);
+
+</p><p>   return 0;
+</p><p>}
+</p><p>Output
+</p><p>&x[0] = 1450734448
+</p><p>&x[1] = 1450734452
+</p><p>&x[2] = 1450734456
+</p><p>&x[3] = 1450734460
+</p><p>Address of array x: 1450734448</code>
+</p><p>There is a difference of 4 bytes between two consecutive elements of array x. It is because the size of int is 4 bytes (on our compiler).
+</p><p>Notice that, the address of &x[0] and x is the same. It's because the variable name x points to the first element of the array.
+
+F</p><p>rom the above example, it is clear that &x[0] is equivalent to x. And, x[0] is equivalent to *x.
+S</p><p>imilarly,
+</p><p>&x[1] is equivalent to x+1 and x[1] is equivalent to *(x+1).
+</p><p>&x[2] is equivalent to x+2 and x[2] is equivalent to *(x+2).
+...
+</p><p>Basically, &x[i] is equivalent to x+i and x[i] is equivalent to *(x+i).
+
+</p><p>Example 1: Pointers and Arrays
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+</p><p>  int i, x[6], sum = 0;
+ </p><p> printf("Enter 6 numbers: ");
+</p><p>  for(i = 0; i < 6; ++i) {
+</p><p>  // Equivalent to scanf("%d", &x[i]);
+</p><p>      scanf("%d", x+i);
+
+</p><p>  // Equivalent to sum += x[i]
+</p><p>      sum += *(x+i);
+</p><p>  }
+</p><p>  printf("Sum = %d", sum);
+</p><p>  return 0;
+</p><p>}
+</p><p>When you run the program, the output will be:
+E</p><p>nter 6 numbers:  2
+</p><p> 3
+</p><p> 4
+</p><p> 4
+</p><p> 12
+</p><p> 4
+</p><p>Sum = 29 </code>
+
+
+
+</p><p>Here, we have declared an array x of 6 elements. To access elements of the array, we have used pointers.
+
+</p><p>In most contexts, array names decay to pointers. In simple words, array names are converted to pointers. That's the reason why you can use pointers to access elements of arrays. However, you should remember that pointers and arrays are not the same.
+</p><p>There are a few cases where array names don't decay to pointers. To learn more, visit: When does array name doesn't decay into a pointer?
+
+</p><p>Example 2: Arrays and Pointers
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+</p><p>  int x[5] = {1, 2, 3, 4, 5};
+</p><p>  int* ptr;
+
+</p><p>  // ptr is assigned the address of the third element
+</p><p>  ptr = &x[2]; 
+
+</p><p>  printf("*ptr = %d \n", *ptr);   // 3
+</p><p>  printf("*(ptr+1) = %d \n", *(ptr+1)); // 4
+</p><p>  printf("*(ptr-1) = %d", *(ptr-1));  // 2
+
+ </p><p> return 0;
+</p><p>}
+</p><p>When you run the program, the output will be:
+</p><p>*ptr = 3 
+</p><p>*(ptr+1) = 4 
+</p><p>*(ptr-1) = 2</code>
+</p><p>In this example, &x[2], the address of the third element, is assigned to the ptr pointer. Hence, 3 was displayed when we printed *ptr.
+</p><p>And, printing *(ptr+1) gives us the fourth element. Similarly, printing *(ptr-1) gives us the second element.
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Pointer and Function</h1>
+</p><p>In this tutorial, you'll learn to pass addresses as arguments to the functions with the help of examples. This technique is known as call by reference.
+</p><p>
+
+</p><p>In C programming, it is also possible to pass addresses as arguments to functions.
+</p><p>To accept these addresses in the function definition, we can use pointers. It's because pointers are used to store addresses. Let's take an example:
+
+</p><p>Example: Call by reference
+</p><p><code>#include <stdio.h>
+</p><p>void swap(int *n1, int *n2);
+
+</p><p>int main()
+</p><p>{
+ </p><p>   int num1 = 5, num2 = 10;
+
+ </p><p>   // address of num1 and num2 is passed
+ </p><p>   swap( &num1, &num2);
+
+ </p><p>   printf("num1 = %d\n", num1);
+ </p><p>   printf("num2 = %d", num2);
+ </p><p>   return 0;
+</p><p>}
+
+</p><p>void swap(int* n1, int* n2)
+</p><p>{
+  </p><p>  int temp;
+  </p><p>  temp = *n1;
+  </p><p>  *n1 = *n2;
+ </p><p>   *n2 = temp;
+</p><p>}
+</p><p>When you run the program, the output will be:
+</p><p>num1 = 10
+</p><p>num2 = 5</code>
+</p><p>The address of num1 and num2 are passed to the swap() function using swap(&num1, &num2);.
+</p><p>Pointers n1 and n2 accept these arguments in the function definition.
+</p><p>void swap(int* n1, int* n2) {
+</p><p>    ... ..
+</p><p>}
+
+
+
+</p><p>When *n1 and *n2 are changed inside the swap() function, num1 and num2 inside the main() function are also changed.
+</p><p>Inside the swap() function, *n1 and *n2 swapped. Hence, num1 and num2 are also swapped.
+</p><p>Notice that, swap() is not returning anything; its return type is void.
+</p><p>This technique is known as call by reference in C programming.
+
+</p><p>Example 2: Passing Pointers to Functions
+</p><p><code>#include <stdio.h>
+
+</p><p>void addOne(int* ptr) {
+</p><p>  (*ptr)++; // adding 1 to *ptr
+</p><p>}
+
+</p><p>int main()
+</p><p>{
+</p><p>  int* p, i = 10;
+</p><p>  p = &i;
+ </p><p> addOne(p);
+
+ </p><p> printf("%d", *p); // 11
+ </p><p> return 0;
+</p><p>}</code>
+</p><p>Here, the value stored at p, *p, is 10 initially.
+</p><p>We then passed the pointer p to the addOne() function. The ptr pointer gets this address in the addOne() function.
+</p><p>Inside the function, we increased the value stored at ptr by 1 using (*ptr)++;. Since ptr and p pointers both have the same address, *p inside main() is also 11.
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Dynamic Memory Allocation</h1>
+</p><p>In this tutorial, you'll learn to dynamically allocate memory in your C program using standard library functions: malloc(), calloc(), free() and realloc().
+
+
+</p><p>As you know, an array is a collection of a fixed number of values. Once the size of an array is declared, you cannot change it.
+</p><p>Sometimes the size of the array you declared may be insufficient. To solve this issue, you can allocate memory manually during run-time. This is known as dynamic memory allocation in C programming.
+</p><p>To allocate memory dynamically, library functions are malloc(), calloc(), realloc() and free() are used. These functions are defined in the <stdlib.h> header file.
+
+</p><p><kbd>C malloc()</kbd>
+</p><p>The name "malloc" stands for memory allocation.
+</p><p>The malloc() function reserves a block of memory of the specified number of bytes. And, it returns a pointer of void which can be casted into pointers of any form.
+
+</p><p>Syntax of malloc()
+</p><p>ptr = (castType*) malloc(size);
+</p><p>Example
+</p><p>ptr = (float*) malloc(100 * sizeof(float));
+</p><p>The above statement allocates 400 bytes of memory. It's because the size of float is 4 bytes. And, the pointer ptr holds the address of the first byte in the allocated memory.
+
+
+
+</p><p>The expression results in a NULL pointer if the memory cannot be allocated.
+
+</p><p>C calloc()
+</p><p>The name "calloc" stands for contiguous allocation.
+</p><p>The malloc() function allocates memory and leaves the memory uninitialized. Whereas, the calloc() function allocates memory and initializes all bits to zero.
+
+</p><p>Syntax of calloc()
+</p><p>ptr = (castType*)calloc(n, size);
+</p><p>Example:
+</p><p>ptr = (float*) calloc(25, sizeof(float));
+</p><p>The above statement allocates contiguous space in memory for 25 elements of type float.
+
+</p><p>C free()
+</p><p>Dynamically allocated memory created with either calloc() or malloc() doesn't get freed on their own. You must explicitly use free() to release the space.
+
+</p><p>Syntax of free()
+</p><p>free(ptr);
+</p><p>This statement frees the space allocated in the memory pointed by ptr.
+
+</p><p>Example 1: malloc() and free()
+</p><p><code>// Program to calculate the sum of n numbers entered by the user
+
+</p><p>#include <stdio.h>
+</p><p>#include <stdlib.h>
+
+</p><p>int main()
+</p><p>{
+ </p><p>   int n, i, *ptr, sum = 0;
+
+ </p><p>   printf("Enter number of elements: ");
+  </p><p>  scanf("%d", &n);
+
+  </p><p>  ptr = (int*) malloc(n * sizeof(int));
+ 
+ </p><p>   // if memory cannot be allocated
+ </p><p>   if(ptr == NULL)                     
+ </p><p>   {
+  </p><p>      printf("Error! memory not allocated.");
+ </p><p>       exit(0);
+ </p><p>   }
+</p><p>
+ </p><p>   printf("Enter elements: ");
+ </p><p>   for(i = 0; i < n; ++i)
+   </p><p> {
+       </p><p> scanf("%d", ptr + i);
+ </p><p>       sum += *(ptr + i);
+ </p><p>   }
+
+ </p><p>   printf("Sum = %d", sum);
+  
+</p><p>    // deallocating the memory
+</p><p>    free(ptr);
+
+</p><p>    return 0;
+</p><p>}</code>
+</p><p>Here, we have dynamically allocated the memory for n number of int.
+
+</p><p>Example 2: calloc() and free()
+</p><p><code>// Program to calculate the sum of n numbers entered by the user
+
+</p><p>#include <stdio.h>
+</p><p>#include <stdlib.h>
+
+</p><p>int main()
+</p><p>{
+ </p><p>   int n, i, *ptr, sum = 0;
+ </p><p>   printf("Enter number of elements: ");
+ </p><p>   scanf("%d", &n);
+</p><p>
+ </p><p>   ptr = (int*) calloc(n, sizeof(int));
+ </p><p>   if(ptr == NULL)
+  </p><p>  {
+ </p><p>       printf("Error! memory not allocated.");
+  </p><p>      exit(0);
+ </p><p>   }
+
+ </p><p>   printf("Enter elements: ");
+ </p><p>   for(i = 0; i < n; ++i)
+ </p><p>   {
+ </p><p>       scanf("%d", ptr + i);
+ </p><p>       sum += *(ptr + i);
+ </p><p>   }
+
+ </p><p>   printf("Sum = %d", sum);
+ </p><p>   free(ptr);
+</p><p>    return 0;
+</p><p>}</code>
+
+</p><p>C realloc()
+</p><p>If the dynamically allocated memory is insufficient or more than required, you can change the size of previously allocated memory using the realloc() function.
+
+</p><p>Syntax of realloc()
+</p><p>ptr = realloc(ptr, x);
+</p><p>Here, ptr is reallocated with a new size x.
+
+</p><p>Example 3: realloc()
+</p><p><code>#include <stdio.h>
+</p><p>#include <stdlib.h>
+
+</p><p>int main()
+</p><p>{
+ </p><p>   int *ptr, i , n1, n2;
+ </p><p>   printf("Enter size: ");
+  </p><p>  scanf("%d", &n1);
+
+  </p><p>  ptr = (int*) malloc(n1 * sizeof(int));
+
+ </p><p>   printf("Addresses of previously allocated memory: ");
+ </p><p>   for(i = 0; i < n1; ++i)
+ </p><p>        printf("%u\n",ptr + i);
+
+</p><p>    printf("\nEnter the new size: ");
+</p><p>    scanf("%d", &n2);
+
+</p><p>    // rellocating the memory
+</p><p>    ptr = realloc(ptr, n2 * sizeof(int));
+
+</p><p>    printf("Addresses of newly allocated memory: ");
+</p><p>    for(i = 0; i < n2; ++i)
+</p><p>         printf("%u\n", ptr + i);
+  
+</p><p>    free(ptr);
+
+ </p><p>   return 0;
+</p><p>}
+</p><p>When you run the program, the output will be:
+</p><p>Enter size: 2
+</p><p>Addresses of previously allocated memory:26855472
+</p><p>26855476
+
+</p><p>Enter the new size: 4
+</p><p>Addresses of newly allocated memory:26855472
+</p><p>26855476
+</p><p>26855480
+</p><p>26855484</code>
+
+
+
+
+
+
+
+
+
+
+
+</p>
+
+
+
+</div>
+
+<footer class="jumbotron">
+<h1 class="text-center"> Created by <kbd>rajvarma25</kbd> </h1>
+</footer>
+
+</body>
+</html>

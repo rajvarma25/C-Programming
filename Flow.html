@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<title style="font-family:Mistral;font-size:30px">C Programming/Flow control</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="jumbotron bg-primary">
+<h1 class="text-center" style="font-family:Staatliches;font-size:50px;color:white"><kbd>C</kbd> Programming For Beginners</h1>
+</div>
+
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches"><kbd>C</kbd> Flow Control</h1>
+
+</div>
+
+</div>
+</header>
+
+<div class="container">
+<p>
+
+
+<h1 class="text-center"><kbd>C</kbd> if...else Statement</h1><p>
+</p><p>In this tutorial, you will learn about if statement (including if...else and nested if..else) in C programming with the help of examples.
+
+
+</p><p>C if Statement
+</p><p>The syntax of the if statement in C programming is:
+</p><p>if (test expression) 
+</p><p>{
+</p><p>   // statements to be executed if the test expression is true
+</p><p>}
+
+</p><p>How if statement works?
+</p><p>The if statement evaluates the test expression inside the parenthesis ().
+</p><p>If the test expression is evaluated to true, statements inside the body of if are executed.
+</p><p>If the test expression is evaluated to false, statements inside the body of if are not executed.
+
+</p><p>To learn more about when test expression is evaluated to true (non-zero value) and false (0), check relational and logical operators.
+</p>
+<p>Example 1: if statement
+</p><p><code>// Program to display a number if it is negative
+
+</p><p>#include <stdio.h>
+</p><p>int main() {
+    </p><p>int number;
+
+    </p><p>printf("Enter an integer: ");
+    </p><p>scanf("%d", &number);
+</p><p>
+    // true if number is less than 0
+    </p><p>if (number < 0) {
+        </p><p>printf("You entered %d.\n", number);
+    </p><p>}
+
+   </p><p> printf("The if statement is easy.");
+
+ </p><p>   return 0;
+</p><p>}
+</p><p>Output 1
+</p><p>Enter an integer: -2
+</p><p>You entered -2.
+</p><p>The if statement is easy.</code>
+</p><p>When the user enters -2, the test expression number<0 is evaluated to true. Hence, You entered -2 is displayed on the screen.
+</p><p>Output 2
+</p><p>Enter an integer: 5
+</p><p>The if statement is easy.
+</p><p>When the user enters 5, the test expression number<0 is evaluated to false and the statement inside the body of if is not executed
+</p><p>
+</p><p>C if...else Statement
+</p><p>The if statement may have an optional else block. The syntax of the if..else statement is:
+</p><p>if (test expression) {
+ </p><p>   // statements to be executed if the test expression is true
+</p><p>}
+</p><p>else {
+    </p><p>// statements to be executed if the test expression is false
+</p><p>}
+
+</p><p>How if...else statement works?
+</p><p>If the test expression is evaluated to true,
+</p><p>statements inside the body of if are executed.
+</p><p>statements inside the body of else are skipped from execution.
+</p><p>If the test expression is evaluated to false,
+</p><p>statements inside the body of else are executed
+</p><p>statements inside the body of if are skipped from execution.
+
+</p><p>
+</p><p>Example 2: if...else statement
+</p><p>// Check whether an integer is odd or even
+
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+   </p><p> int number;
+  </p><p>  printf("Enter an integer: ");
+   </p><p> scanf("%d", &number);
+
+   </p><p> // True if the remainder is 0
+  </p><p>  if  (number%2 == 0) {
+       </p><p> printf("%d is an even integer.",number);
+   </p><p> }
+  </p><p>  else {
+       </p><p> printf("%d is an odd integer.",number);
+    </p><p>}
+
+   </p><p> return 0;
+</p><p>}
+
+
+
+</p><p>Output
+</p><p>Enter an integer: 7
+</p><p>7 is an odd integer.
+</p><p>When the user enters 7, the test expression number%2==0 is evaluated to false. Hence, the statement inside the body of else is executed.
+</code>
+</p><p>C if...else Ladder
+</p><p>The if...else statement executes two different codes depending upon whether the test expression is true or false. Sometimes, a choice has to be made from more than 2 possibilities.
+</p><p>The if...else ladder allows you to check between multiple test expressions and execute different statements.
+
+</p><p>Syntax of if...else Ladder
+</p><p>if (test expression1) {
+   </p><p>// statement(s)
+</p><p>}
+</p><p>else if(test expression2) {
+   </p><p>// statement(s)
+</p><p>}
+</p><p>else if (test expression3) {
+  </p><p> // statement(s)
+</p><p>}
+</p><p>.
+</p><p>.
+</p><p>else {
+   </p><p>// statement(s)
+</p><p>}
+
+</p><p>Example 3: C if...else Ladder
+</p><p>// Program to relate two integers using =, > or < symbol
+
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+    </p><p>int number1, number2;
+    </p><p>printf("Enter two integers: ");
+    </p><p>scanf("%d %d", &number1, &number2);
+
+    </p><p>//checks if the two integers are equal.
+   </p><p> if(number1 == number2) {
+        </p><p>printf("Result: %d = %d",number1,number2);
+    </p><p>}
+
+    </p><p>//checks if number1 is greater than number2.
+    </p><p>else if (number1 > number2) {
+        </p><p>printf("Result: %d > %d", number1, number2);
+    </p><p>}
+
+   </p><p> //checks if both test expressions are false
+    </p><p>else {
+        </p><p>printf("Result: %d < %d",number1, number2);
+    </p><p>}
+
+    </p><p>return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter two integers: 12
+</p><p>23
+</p><p>Result: 12 < 23
+</code>
+</p><p>Nested if...else
+</p><p>It is possible to include an if...else statement inside the body of another if...else statement.
+
+</p><p>Example 4: Nested if...else
+</p><p>This program given below relates two integers using either <, > and = similar to the if...else ladder's example. However, we will use a nested if...else statement to solve this problem.
+</p><p><code>#include <stdio.h>
+</p><p>int main() {
+    </p><p>int number1, number2;
+    </p><p>printf("Enter two integers: ");
+    </p><p>scanf("%d %d", &number1, &number2);
+
+    </p><p>if (number1 >= number2) {
+      </p><p>if (number1 == number2) {
+        </p><p>printf("Result: %d = %d",number1,number2);
+      </p><p>}
+      </p><p>else {
+        </p><p>printf("Result: %d > %d", number1, number2);
+      </p><p>}
+    </p><p>}
+    </p><p>else {
+        </p><p>printf("Result: %d < %d",number1, number2);
+    </p><p>}
+
+    </p><p>return 0;
+</p><p>}</code>
+
+</p><p>If the body of an if...else statement has only one statement, you do not need to use brackets {}.
+</p><p>For example, this code
+</p><p><code>if (a > b) {
+    </p><p>print("Hello");
+</p><p>}
+</p><p>print("Hi");
+</p><p>is equivalent to
+</p><p>if (a > b)
+    </p><p>print("Hello");
+</p><p>print("Hi");</code>
+</p>
+
+<p>
+</p><p><h1 class="text-center"><kbd>C</kbd> Loop</h1>
+</p><p>In this tutorial, you will learn to create for loop in C programming with the help of examples.
+
+
+</p><p>In programming, a loop is used to repeat a block of code until the specified condition is met.
+</p><p>C programming has three types of loops:
+</p><p>for loop
+</p><p>while loop
+</p><p>do...while loop
+</p><p>We will learn about for loop in this tutorial. In the next tutorial, we will learn about while and do...while loop.
+
+</p><p>for Loop
+</p><p>The syntax of the for loop is:
+</p><p>for (initializationStatement; testExpression; updateStatement)
+</p><p>{
+  </p><p>  // statements inside the body of loop
+</p><p>}
+
+</p><p><kbd>How for loop works?</kbd>
+</p><p>The initialization statement is executed only once.
+</p><p>Then, the test expression is evaluated. If the test expression is evaluated to false, the for loop is terminated.
+</p><p>However, if the test expression is evaluated to true, statements inside the body of for loop are executed, and the update expression is updated.
+</p><p>Again the test expression is evaluated.
+</p><p>This process goes on until the test expression is false. When the test expression is false, the loop terminates.
+</p><p>To learn more about test expression (when the test expression is evaluated to true and false), check out relational and logical operators.
+
+</p><p>for loop Flowchart
+
+
+</p><p>Example 1: for loop
+</p><p><code>// Print numbers from 1 to 10
+</p><p>#include <stdio.h>
+
+</p><p>int main() {
+</p><p>  int i;
+
+ </p><p> for (i = 1; i < 11; ++i)
+ </p><p> {
+  </p><p>  printf("%d ", i);
+  </p><p>}
+ </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>1 2 3 4 5 6 7 8 9 10</code>
+</p><p>i is initialized to 1.
+</p><p>The test expression i < 11 is evaluated. Since 1 less than 11 is true, the body of for loop is executed. This will print the 1 (value of i) on the screen.
+</p><p>The update statement ++i is executed. Now, the value of i will be 2. Again, the test expression is evaluated to true, and the body of for loop is executed. This will print 2 (value of i) on the screen.
+</p><p>Again, the update statement ++i is executed and the test expression i < 11 is evaluated. This process goes on until i becomes 11.
+</p><p>When i becomes 11, i < 11 will be false, and the for loop terminates.
+
+</p><p>Example 2: for loop
+</p><p>// Program to calculate the sum of first n natural numbers
+</p><p>// Positive integers 1,2,3...n are known as natural numbers
+
+</p><p><code>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+  </p><p>  int num, count, sum = 0;
+
+  </p><p>  printf("Enter a positive integer: ");
+  </p><p>  scanf("%d", &num);
+
+  </p><p>  // for loop terminates when num is less than count
+  </p><p>  for(count = 1; count <= num; ++count)
+   </p><p> {
+   </p><p>     sum += count;
+   </p><p> }
+
+   </p><p> printf("Sum = %d", sum);
+
+   </p><p> return 0;
+</p><p>}
+
+
+
+</p><p>Output
+</p><p>Enter a positive integer: 10
+</p><p>Sum = 55</code>
+</p><p>The value entered by the user is stored in the variable num. Suppose, the user entered 10.
+</p><p>The count is initialized to 1 and the test expression is evaluated. Since the test expression count<=num (1 less than or equal to 10) is true, the body of for loop is executed and the value of sum will equal to 1.
+</p><p>Then, the update statement ++count is executed and the count will equal to 2. Again, the test expression is evaluated. Since 2 is also less than 10, the test expression is evaluated to true and the body of for loop is executed. Now, the sum will equal 3.
+</p><p>This process goes on and the sum is calculated until the count reaches 11.
+</p><p>When the count is 11, the test expression is evaluated to 0 (false), and the loop terminates.
+</p><p>Then, the value of sum is printed on the screen.
+
+</p>
+
+<p>
+
+</p><p><h1 class="text-center"><kbd>C</kbd> while and do...while Loop</h1>
+</p><p>In this tutorial, you will learn to create while and do...while loop in C programming with the help of examples.
+
+
+</p><p>In programming, loops are used to repeat a block of code until a specified condition is met.
+</p><p>C programming has three types of loops.
+</p><p>for loop
+</p><p>while loop
+</p><p>do...while loop
+</p><p>In the previous tutorial, we learned about for loop. In this tutorial, we will learn about while and do..while loop.
+
+</p><p>while loop
+</p><p>The syntax of the while loop is:
+</p><p>while (testExpression) 
+</p><p>{
+ </p><p>   // statements inside the body of the loop 
+</p><p>}
+
+</p><p>How while loop works?
+</p><p>The while loop evaluates the test expression inside the parenthesis ().
+</p><p>If the test expression is true, statements inside the body of while loop are executed. Then, the test expression is evaluated again.
+</p><p>The process goes on until the test expression is evaluated to false.
+</p><p>If the test expression is false, the loop terminates (ends).
+</p><p>To learn more about test expression (when the test expression is evaluated to true and false), check out relational and logical operators.
+
+</p><p>Flowchart of while loop
+
+
+
+
+
+</p><p>Example 1: while loop
+</p><p><code>// Print numbers from 1 to 5
+
+</p><p>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+   </p><p> int i = 1;
+    
+   </p><p> while (i <= 5)
+   </p><p> {
+   </p><p>     printf("%d\n", i);
+   </p><p>     ++i;
+   </p><p> }
+
+   </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>1
+</p><p>2
+</p><p>3
+</p><p>4
+</p><p>5</code>
+</p><p>Here, we have initialized i to 1.
+</p><p>When i is 1, the test expression i <= 5 is true. Hence, the body of the while loop is executed. This prints 1 on the screen and the value of i is increased to 2.
+</p><p>Now, i is 2, the test expression i <= 5 is again true. The body of the while loop is executed again. This prints 2 on the screen and the value of i is increased to 3.
+</p><p>This process goes on until i becomes 6. When i is 6, the test expression i <= 5 will be false and the loop terminates.
+
+</p><p>do...while loop
+</p><p>The do..while loop is similar to the while loop with one important difference. The body of do...while loop is executed at least once. Only then, the test expression is evaluated.
+</p><p>The syntax of the do...while loop is:
+</p><p>do
+</p><p>{
+  </p><p> // statements inside the body of the loop
+</p><p>}
+</p><p>while (testExpression);
+
+</p><p>How do...while loop works?
+</p><p>The body of do...while loop is executed once. Only then, the test expression is evaluated.
+</p><p>If the test expression is true, the body of the loop is executed again and the test expression is evaluated.
+</p><p>This process goes on until the test expression becomes false.
+</p><p>If the test expression is false, the loop ends.
+
+</p><p>Flowchart of do...while Loop
+
+
+</p><p>Example 2: do...while loop
+</p><p><code>// Program to add numbers until the user enters zero
+
+</p><p>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+   </p><p> double number, sum = 0;
+
+  </p><p>  // the body of the loop is executed at least once
+  </p><p>  do
+  </p><p>  {
+ </p><p>       printf("Enter a number: ");
+  </p><p>      scanf("%lf", &number);
+ </p><p>      sum += number;
+  </p><p>  }
+   </p><p> while(number != 0.0);
+
+   </p><p> printf("Sum = %.2lf",sum);
+
+   </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter a number: 1.5
+</p><p>Enter a number: 2.4
+</p><p>Enter a number: -3.4
+</p><p>Enter a number: 4.2
+</p><p>Enter a number: 0
+</p><p>Sum = 4.70</code>
+</p>
+
+<p>
+
+<p><h1 class="text-center"><kbd>C</kbd> break and continue</h1>
+</p><p>We learned about loops in previous tutorials. In this tutorial, we will learn to use break and continue statements with the help of examples.
+
+
+</p><p>C break
+</p><p>The break statement ends the loop immediately when it is encountered. Its syntax is:
+</p><p>break;
+</p><p>The break statement is almost always used with if...else statement inside the loop.
+
+</p><p>How break statement works?
+
+
+</p><p>Example 1: break statement
+</p><p><code>// Program to calculate the sum of a maximum of 10 numbers
+</p><p>// If a negative number is entered, the loop terminates
+
+</p><p># include <stdio.h>
+</p><p>int main()
+</p><p>{
+ </p><p>   int i;
+  </p><p>  double number, sum = 0.0;
+
+   </p><p> for(i=1; i <= 10; ++i)
+   </p><p> {
+    </p><p>    printf("Enter a n%d: ",i);
+    </p><p>    scanf("%lf",&number);
+
+      </p><p>  // If the user enters a negative number, the loop ends
+      </p><p>  if(number < 0.0)
+     </p><p>   {
+      </p><p>      break;
+     </p><p>   }
+
+      </p><p>  sum += number; // sum = sum + number;
+   </p><p> }
+
+   </p><p> printf("Sum = %.2lf",sum);
+    
+   </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter a n1: 2.4
+</p><p>Enter a n2: 4.5
+</p><p>Enter a n3: 3.4
+</p><p>Enter a n4: -3
+</p><p>Sum = 10.30</code>
+</p><p>This program calculates the sum of a maximum of 10 numbers. Why a maximum of 10 numbers? It's because if the user enters a negative number, the break statement is executed. This will end the for loop, and the sum is displayed.
+
+
+
+</p><p>In C, break is also used with the switch statement. This will be discussed in the next tutorial.
+
+</p><p><h1 class="text-center"><kbd>C</kbd> continue</h1>
+</p><p>The continue statement skips the current iteration of the loop and continues with the next iteration. Its syntax is:
+</p><p>continue;
+The continue statement is almost always used with the if...else statement.
+
+</p><p>How continue statement works?
+
+
+</p><p>Example 2: continue statement
+</p><p><code>// Program to calculate the sum of a maximum of 10 numbers
+</p><p>// Negative numbers are skipped from the calculation
+
+</p><p># include <stdio.h>
+</p><p>int main()
+</p><p>{
+ </p><p>   int i;
+  </p><p>  double number, sum = 0.0;
+
+  </p><p>  for(i=1; i <= 10; ++i)
+  </p><p>  {
+  </p><p>      printf("Enter a n%d: ",i);
+  </p><p>      scanf("%lf",&number);
+
+  </p><p>      if(number < 0.0)
+  </p><p>      {
+  </p><p>          continue;
+  </p><p>      }
+
+  </p><p>      sum += number; // sum = sum + number;
+  </p><p>  }
+
+   </p><p> printf("Sum = %.2lf",sum);
+    
+  </p><p>  return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter a n1: 1.1
+</p><p>Enter a n2: 2.2
+</p><p>Enter a n3: 5.5
+</p><p>Enter a n4: 4.4
+</p><p>Enter a n5: -3.4
+</p><p>Enter a n6: -45.5
+</p><p>Enter a n7: 34.5
+</p><p>Enter a n8: -4.2
+</p><p>Enter a n9: -1000
+</p><p>Enter a n10: 12
+</p><p>Sum = 59.70</code>
+</p><p>In this program, when the user enters a positive number, the sum is calculated using sum += number; statement.
+</p><p>When the user enters a negative number, the continue statement is executed and it skips the negative number from the calculation.C break and continue
+</p><p>We learned about loops in previous tutorials. In this tutorial, we will learn to use break and continue statements with the help of examples.
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> break</h1>
+</p><p>The break statement ends the loop immediately when it is encountered. Its syntax is:
+</p><p>break;
+</p><p>The break statement is almost always used with if...else statement inside the loop.
+
+</p><p>How break statement works?
+
+
+</p><p>Example 1: break statement
+</p><p><code>// Program to calculate the sum of a maximum of 10 numbers
+</p><p>// If a negative number is entered, the loop terminates
+
+</p><p># include <stdio.h>
+</p><p>int main()
+</p><p>{
+  </p><p>  int i;
+ </p><p>   double number, sum = 0.0;
+
+   </p><p> for(i=1; i <= 10; ++i)
+ </p><p>   {
+  </p><p>      printf("Enter a n%d: ",i);
+ </p><p>       scanf("%lf",&number);
+
+   </p><p>     // If the user enters a negative number, the loop ends
+  </p><p>      if(number < 0.0)
+  </p><p>      {
+  </p><p>          break;
+  </p><p>      }
+
+  </p><p>      sum += number; // sum = sum + number;
+  </p><p>  }
+
+   </p><p> printf("Sum = %.2lf",sum);
+    
+ </p><p>   return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter a n1: 2.4
+</p><p>Enter a n2: 4.5
+</p><p>Enter a n3: 3.4
+</p><p>Enter a n4: -3
+</p><p>Sum = 10.30</code>
+</p><p>This program calculates the sum of a maximum of 10 numbers. Why a maximum of 10 numbers? It's because if the user enters a negative number, the break statement is executed. This will end the for loop, and the sum is displayed.
+
+
+
+</p><p>In C, break is also used with the switch statement. This will be discussed in the next tutorial.
+
+
+</p>
+
+<p>
+
+<p><h1 class="text-center"><kbd>C</kbd> switch Statement</h1>
+</p><p>In this tutorial, you will learn to create the switch statement in C programming with the help of an example.
+
+
+</p><p>The switch statement allows us to execute one code block among many alternatives.
+</p><p>You can do the same thing with the if...else..if ladder. However, the syntax of the switch statement is much easier to read and write.
+
+</p><p>Syntax of switch...case
+</p><p>switch (expression)
+​</p><p>{
+   </p><p> case constant1:
+  </p><p>    // statements
+   </p><p>   break;
+
+   </p><p> case constant2:
+  </p><p>    // statements
+   </p><p>   break;
+    .
+    .
+    .
+   </p><p> default:
+   </p><p>   // default statements
+</p><p>}
+</p><p>How does the switch statement work?
+</p><p>The expression is evaluated once and compared with the values of each case label.
+</p><p>If there is a match, the corresponding statements after the matching label are executed. For example, if the value of the expression is equal to constant2, statements after case constant2: are executed until break is encountered.
+</p><p>If there is no match, the default statements are executed.
+</p><p>If we do not use break, all statements after the matching label are executed.
+</p><p>By the way, the default clause inside the switch statement is optional.
+
+</p><p>switch Statement Flowchart
+
+
+</p><p>Example: Simple Calculator
+</p><p><code>// Program to create a simple calculator
+</p><p>#include <stdio.h>
+
+</p><p>int main() {
+  </p><p>  char operator;
+  </p><p>  double n1, n2;
+
+   </p><p> printf("Enter an operator (+, -, *, /): ");
+   </p><p> scanf("%c", &operator);
+   </p><p> printf("Enter two operands: ");
+   </p><p> scanf("%lf %lf",&n1, &n2);
+
+   </p><p> switch(operator)
+  </p><p>  {
+      </p><p>  case '+':
+      </p><p>      printf("%.1lf + %.1lf = %.1lf",n1, n2, n1+n2);
+       </p><p>     break;
+
+      </p><p>  case '-':
+       </p><p>     printf("%.1lf - %.1lf = %.1lf",n1, n2, n1-n2);
+       </p><p>     break;
+
+       </p><p> case '*':
+       </p><p>     printf("%.1lf * %.1lf = %.1lf",n1, n2, n1*n2);
+       </p><p>     break;
+
+       </p><p> case '/':
+       </p><p>     printf("%.1lf / %.1lf = %.1lf",n1, n2, n1/n2);
+        </p><p>    break;
+
+       </p><p> // operator doesn't match any case constant +, -, *, /
+      </p><p>  default:
+      </p><p>      printf("Error! operator is not correct");
+   </p><p> }
+
+   </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter an operator (+, -, *,): -
+</p><p>Enter two operands: 32.5
+</p><p>12.4
+</p><p>32.5 - 12.4 = 20.1</code>
+
+
+
+</p><p>The - operator entered by the user is stored in the operator variable. And, two operands 32.5 and 12.4 are stored in variables n1 and n2 respectively.
+</p><p>Since the operator is -, the control of the program jumps to
+</p><p>printf("%.1lf - %.1lf = %.1lf", n1, n2, n1-n2);
+</p><p>Finally, the break statement terminates the switch statement.
+
+
+</p>
+
+<p>
+
+</p><p><h1 class="text-center"><kbd>C</kbd> goto Statement</h1>
+</p><p>In this tutorial, you will learn to create the goto statement in C programming. Also, you will learn when to use a goto statement and when not to use it
+
+</p><p>The goto statement allows us to transfer control of the program to the specified label.
+
+</p><p>Syntax of goto Statement
+</p><p>goto label;
+... .. ...
+... .. ...
+</p><p>label: 
+</p><p>statement;
+</p><p>The label is an identifier. When the goto statement is encountered, the control of the program jumps to label: and starts executing the code.
+
+</p><p>Example: goto Statement
+</p><p><code>// Program to calculate the sum and average of positive numbers
+</p><p>// If the user enters a negative number, the sum and average are displayed.
+
+</p><p>#include <stdio.h>
+
+</p><p>int main() {
+
+  </p><p> const int maxInput = 100;
+  </p><p> int i;
+  </p><p> double number, average, sum = 0.0;
+
+  </p><p> for (i = 1; i <= maxInput; ++i) {
+     </p><p> printf("%d. Enter a number: ", i);
+    </p><p>  scanf("%lf", &number);
+      
+    </p><p>  // go to jump if the user enters a negative number
+    </p><p>  if (number < 0.0) {
+    </p><p>     goto jump;
+   </p><p>   }
+  </p><p>    sum += number;
+   </p><p>}
+
+</p><p>jump:
+  </p><p> average = sum / (i - 1);
+  </p><p> printf("Sum = %.2f\n", sum);
+  </p><p> printf("Average = %.2f", average);
+
+ </p><p>  return 0;
+</p><p>}
+</p><p>Output
+</p><p>1. Enter a number: 3
+</p><p>2. Enter a number: 4.3
+</p><p>3. Enter a number: 9.3
+</p><p>4. Enter a number: -2.9
+</p><p>Sum = 16.60
+</p><p>Average = 5.53</code>
+
+
+</p>
+
+</p>
+
+<p>
+
+</p><p>
+
+</p>
+
+</p>
+</div>
+
+<footer class="jumbotron">
+<h1 class="text-center"> Created by <kbd>rajvarma25</kbd> </h1>
+</footer>
+
+</body>
+</html>

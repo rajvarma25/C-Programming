@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<title style="font-family:Mistral;font-size:30px">C Programming/Arrays</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="jumbotron bg-primary">
+<h1 class="text-center" style="font-family:Staatliches;font-size:50px;color:white"><kbd>C</kbd> Programming For Beginners</h1>
+</div>
+
+
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches"> <kbd>C</kbd> Arrays</h1>
+
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container">
+
+<p>
+
+
+</p><p>In this tutorial, you will learn to work with arrays. You will learn to declare, initialize and access elements of an array with the help of examples.
+
+
+
+</p><p>An array is a variable that can store multiple values. For example, if you want to store 100 integers, you can create an array for it.
+</p><p>int data[100]; 
+
+</p><p><kbd>How to declare an array?</kbd>
+</p><p>dataType arrayName[arraySize];
+</p><p>For example,
+</p><p>float mark[5];
+</p><p>Here, we declared an array, mark, of floating-point type. And its size is 5. Meaning, it can hold 5 floating-point values.
+</p><p>It's important to note that the size and type of an array cannot be changed once it is declared.
+
+</p><p><kbd>Access Array Elements</kbd>
+</p><p>You can access elements of an array by indices.
+</p><p>Suppose you declared an array mark as above. The first element is mark[0], the second element is mark[1] and so on.
+
+</p><p><kbd>Few keynotes</kbd> :
+</p><p>Arrays have 0 as the first index, not 1. In this example, mark[0] is the first element.
+</p><p>If the size of an array is n, to access the last element, the n-1 index is used. In this example, mark[4]
+</p><p>Suppose the starting address of mark[0] is 2120d. Then, the address of the mark[1] will be 2124d. Similarly, the address of mark[2] will be 2128d and so on.
+</p><p>This is because the size of a float is 4 bytes.
+
+</p><p><kbd>How to initialize an array?</kbd>
+</p><p>It is possible to initialize an array during declaration. For example,
+</p><p>int mark[5] = {19, 10, 8, 17, 9};
+</p><p>You can also initialize an array like this.
+</p><p>int mark[] = {19, 10, 8, 17, 9};
+</p><p>Here, we haven't specified the size. However, the compiler knows its size is 5 as we are initializing it with 5 elements.
+
+</p><p>Here,
+</p><p>mark[0] is equal to 19
+</p><p>mark[1] is equal to 10
+</p><p>mark[2] is equal to 8
+</p><p>mark[3] is equal to 17
+</p><p>mark[4] is equal to 9
+
+</p><p>Change Value of Array elements
+</p><p>int mark[5] = {19, 10, 8, 17, 9}
+
+</p><p>// make the value of the third element to -1
+</p><p>mark[2] = -1;
+
+</p><p>// make the value of the fifth element to 0
+</p><p>mark[4] = 0;
+
+</p><p>Input and Output Array Elements
+</p><p>Here's how you can take input from the user and store it in an array element.
+</p><p>// take input and store it in the 3rd element
+​</p><p>scanf("%d", &mark[2]);
+
+</p><p>// take input and store it in the ith element
+</p><p>scanf("%d", &mark[i-1]);
+
+
+
+</p><p>Here's how you can print an individual element of an array.
+</p><p>// print the first element of the array
+</p><p>printf("%d", mark[0]);
+
+</p><p>// print the third element of the array
+</p><p>printf("%d", mark[2]);
+
+</p><p>// print ith element of the array
+</p><p>printf("%d", mark[i-1]);
+
+</p><p>Example 1: Array Input/Output
+</p><p><code>// Program to take 5 values from the user and store them in an array
+</p><p>// Print the elements stored in the array
+</p><p>#include <stdio.h>
+
+</p><p>int main() {
+ </p><p> int values[5];
+
+ </p><p> printf("Enter 5 integers: ");
+
+ </p><p>// taking input and storing it in an array
+  </p><p>for(int i = 0; i < 5; ++i) {
+  </p><p>   scanf("%d", &values[i]);
+ </p><p> }
+
+ </p><p> printf("Displaying integers: ");
+
+  </p><p>// printing elements of an array
+ </p><p> for(int i = 0; i < 5; ++i) {
+   </p><p>  printf("%d\n", values[i]);
+  </p><p>}
+ </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter 5 integers: 1
+</p><p>-3
+</p><p>34
+</p><p>0
+</p><p>3
+</p><p>Displaying integers: 1
+</p><p>-3
+</p><p>34
+</p><p>0
+</p><p>3</code>
+</p><p>Here, we have used a for loop to take 5 inputs from the user and store them in an array. Then, using another for loop, these elements are displayed on the screen.
+
+</p><p>Example 2: Calculate Average
+</p><p><code>// Program to find the average of n numbers using arrays
+
+</p><p>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+ </p><p>    int marks[10], i, n, sum = 0, average;
+
+   </p><p>  printf("Enter number of elements: ");
+   </p><p>  scanf("%d", &n);
+
+  </p><p>   for(i=0; i<n; ++i)
+ </p><p>    {
+    </p><p>      printf("Enter number%d: ",i+1);
+ </p><p>         scanf("%d", &marks[i]);
+          
+  </p><p>        // adding integers entered by the user to the sum variable
+  </p><p>        sum += marks[i];
+ </p><p>    }
+
+</p><p>     average = sum/n;
+ </p><p>    printf("Average = %d", average);
+
+  </p><p>   return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter n: 5
+</p><p>Enter number1: 45
+</p><p>Enter number2: 35
+</p><p>Enter number3: 38
+</p><p>Enter number4: 31
+</p><p>Enter number5: 49
+</p><p>Average = 39</code>
+</p><p>Here, we have computed the average of n numbers entered by the user.
+
+</p><p>Access elements out of its bound!
+</p><p>Suppose you declared an array of 10 elements. Let's say,
+</p><p>int testArray[10];
+</p><p>You can access the array elements from testArray[0] to testArray[9].
+</p><p>Now let's say if you try to access testArray[12]. The element is not available. This may cause unexpected output (undefined behavior). Sometimes you might get an error and some other time your program may run correctly.
+</p><p>Hence, you should never access elements of an array outside of its bound.
+
+</p><p><kbd>Multidimensional arrays</kbd>
+</p><p>In this tutorial, you learned about arrays. These arrays are called one-dimensional arrays.
+</p><p>In the next tutorial, you will learn about multidimensional arrays (array of an array).
+
+
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Multidimensional Arrays</h1>
+</p><p>In this tutorial, you will learn to work with multidimensional arrays (two-dimensional and three-dimensional arrays) with the help of examples.
+
+
+</p><p>In C programming, you can create an array of arrays. These arrays are known as multidimensional arrays. For example,
+</p><p>float x[3][4];
+</p><p>Here, x is a two-dimensional (2d) array. The array can hold 12 elements. You can think the array as a table with 3 rows and each row has 4 columns.
+
+</p><p>Similarly, you can declare a three-dimensional (3d) array. For example,
+</p><p>float y[2][4][3];
+</p><p>Here, the array y can hold 24 elements.
+
+</p><p><kbd>Initializing a multidimensional array</kbd>
+</p><p>Here is how you can initialize two-dimensional and three-dimensional arrays:
+
+</p><p>Initialization of a 2d array
+</p><p>// Different ways to initialize two-dimensional array
+
+</p><p>int c[2][3] = {{1, 3, 0}, {-1, 5, 9}};
+         
+</p><p>int c[][3] = {{1, 3, 0}, {-1, 5, 9}};
+                
+</p><p>int c[2][3] = {1, 3, 0, -1, 5, 9};
+
+</p><p>Initialization of a 3d array
+
+
+
+</p><p>You can initialize a three-dimensional array in a similar way like a two-dimensional array. Here's an example,
+</p><p>int test[2][3][4] = {
+   </p><p> {{3, 4, 2, 3}, {0, -3, 9, 11}, {23, 12, 23, 2}},
+  </p><p>  {{13, 4, 56, 3}, {5, 9, 3, 5}, {3, 1, 4, 9}}};
+
+</p><p>Example 1: Two-dimensional array to store and print values
+</p><p><code>// C program to store temperature of two cities of a week and display it.
+</p><p>#include <stdio.h>
+</p><p>const int CITY = 2;
+</p><p>const int WEEK = 7;
+</p><p>int main()
+</p><p>{
+ </p><p> int temperature[CITY][WEEK];
+
+ </p><p> // Using nested loop to store values in a 2d array
+ </p><p> for (int i = 0; i < CITY; ++i)
+ </p><p> {
+  </p><p>  for (int j = 0; j < WEEK; ++j)
+ </p><p>   {
+</p><p>      printf("City %d, Day %d: ", i + 1, j + 1);
+</p><p>scanf("%d", &temperature[i][j]);
+ </p><p>   }
+ </p><p> }
+</p><p>  printf("\nDisplaying values: \n\n");
+
+ </p><p> // Using nested loop to display vlues of a 2d array
+</p><p>  for (int i = 0; i < CITY; ++i)
+ </p><p> {
+ </p><p>   for (int j = 0; j < WEEK; ++j)
+  </p><p>  {
+ </p><p>     printf("City %d, Day %d = %d\n", i + 1, j + 1, temperature[i][j]);
+  </p><p>  }
+ </p><p> }
+ </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>City 1, Day 1: 33
+</p><p>City 1, Day 2: 34
+</p><p>City 1, Day 3: 35
+</p><p>City 1, Day 4: 33
+</p><p>City 1, Day 5: 32
+</p><p>City 1, Day 6: 31
+</p><p>City 1, Day 7: 30
+</p><p>City 2, Day 1: 23
+</p><p>City 2, Day 2: 22
+</p><p>City 2, Day 3: 21
+</p><p>City 2, Day 4: 24
+</p><p>City 2, Day 5: 22
+</p><p>City 2, Day 6: 25
+</p><p>City 2, Day 7: 26
+
+</p><p>Displaying values: 
+
+</p><p>City 1, Day 1 = 33
+</p><p>City 1, Day 2 = 34
+</p><p>City 1, Day 3 = 35
+</p><p>City 1, Day 4 = 33
+</p><p>City 1, Day 5 = 32
+</p><p>City 1, Day 6 = 31
+</p><p>City 1, Day 7 = 30
+</p><p>City 2, Day 1 = 23
+</p><p>City 2, Day 2 = 22
+</p><p>City 2, Day 3 = 21
+</p><p>City 2, Day 4 = 24
+</p><p>City 2, Day 5 = 22
+</p><p>City 2, Day 6 = 25
+</p><p>City 2, Day 7 = 26</code>
+
+</p><p>Example 2: Sum of two matrices
+</p><p><code>// C program to find the sum of two matrices of order 2*2
+
+</p><p>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+ </p><p> float a[2][2], b[2][2], result[2][2];
+
+ </p><p> // Taking input using nested for loop
+</p><p>  printf("Enter elements of 1st matrix\n");
+</p><p>  for (int i = 0; i < 2; ++i)
+ </p><p>   for (int j = 0; j < 2; ++j)
+  </p><p>  {
+  </p><p>    printf("Enter a%d%d: ", i + 1, j + 1);
+  </p><p>    scanf("%f", &a[i][j]);
+  </p><p>  }
+
+  </p><p>// Taking input using nested for loop
+ </p><p> printf("Enter elements of 2nd matrix\n");
+ </p><p> for (int i = 0; i < 2; ++i)
+   </p><p> for (int j = 0; j < 2; ++j)
+ </p><p>   {
+  </p><p>    printf("Enter b%d%d: ", i + 1, j + 1);
+  </p><p>    scanf("%f", &b[i][j]);
+  </p><p>  }
+
+ </p><p> // adding corresponding elements of two arrays
+ </p><p> for (int i = 0; i < 2; ++i)
+ </p><p>   for (int j = 0; j < 2; ++j)
+ </p><p>   {
+ </p><p>     result[i][j] = a[i][j] + b[i][j];
+   </p><p> }
+
+  </p><p>// Displaying the sum
+  </p><p>printf("\nSum Of Matrix:");
+
+ </p><p> for (int i = 0; i < 2; ++i)
+  </p><p>  for (int j = 0; j < 2; ++j)
+  </p><p>  {
+   </p><p>   printf("%.1f\t", result[i][j]);
+
+   </p><p>   if (j == 1)
+  </p><p>      printf("\n");
+  </p><p>  }
+ </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter elements of 1st matrix
+</p><p>Enter a11: 2;
+</p><p>Enter a12: 0.5;
+</p><p>Enter a21: -1.1;
+</p><p>Enter a22: 2;
+</p><p>Enter elements of 2nd matrix
+</p><p>Enter b11: 0.2;
+</p><p>Enter b12: 0;
+</p><p>Enter b21: 0.23;
+</p><p>Enter b22: 23;
+
+</p><p>Sum Of Matrix:
+</p><p>2.2     0.5
+</p><p>-0.9    25.0</code>
+
+</p><p>Example 3: Three-dimensional array
+</p><p><code>// C Program to store and print 12 values entered by the user
+
+</p><p>#include <stdio.h>
+</p><p>int main()
+</p><p>{
+ </p><p> int test[2][3][2];
+
+  </p><p>printf("Enter 12 values: \n");
+
+ </p><p> for (int i = 0; i < 2; ++i)
+ </p><p> {
+  </p><p>  for (int j = 0; j < 3; ++j)
+  </p><p>  {
+  </p><p>    for (int k = 0; k < 2; ++k)
+  </p><p>    {
+   </p><p>     scanf("%d", &test[i][j][k]);
+   </p><p>   }
+  </p><p>  }
+ </p><p> }
+
+</p><p>  // Printing values with proper index.
+
+</p><p>  printf("\nDisplaying values:\n");
+ </p><p> for (int i = 0; i < 2; ++i)
+ </p><p> {
+ </p><p>   for (int j = 0; j < 3; ++j)
+  </p><p>  {
+   </p><p>   for (int k = 0; k < 2; ++k)
+  </p><p>    {
+  </p><p>      printf("test[%d][%d][%d] = %d\n", i, j, k, test[i][j][k]);
+  </p><p>    }
+ </p><p>   }
+ </p><p> }
+
+ </p><p> return 0;
+</p><p>}
+</p><p>Output
+</p><p>Enter 12 values: 
+</p><p>1
+</p><p>2
+</p><p>3
+</p><p>4
+</p><p>5
+</p><p>6
+</p><p>7
+</p><p>8
+</p><p>9
+</p><p>10
+</p><p>11
+</p><p>12
+
+</p><p>Displaying Values:
+</p><p>test[0][0][0] = 1
+</p><p>test[0][0][1] = 2
+</p><p>test[0][1][0] = 3
+</p><p>test[0][1][1] = 4
+</p><p>test[0][2][0] = 5
+</p><p>test[0][2][1] = 6
+</p><p>test[1][0][0] = 7
+</p><p>test[1][0][1] = 8
+</p><p>test[1][1][0] = 9
+</p><p>test[1][1][1] = 10
+</p><p>test[1][2][0] = 11
+</p><p>test[1][2][1] = 12</code>
+
+
+
+
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Arrays and Function</h1>
+</p><p>In this tutorial, you'll learn to pass arrays (both one-dimensional and multidimensional arrays) to a function in C programming with the help of examples.
+
+
+</p><p>In C programming, you can pass en entire array to functions. Before we learn that, let's see how you can pass individual elements of an array to functions.
+
+</p><p>Passing individual array elements
+</p><p>Passing array elements to a function is similar to passing variables to a function.
+
+</p><p>Example 1: Passing an array
+</p><p><code>#include <stdio.h>
+</p><p>void display(int age1, int age2)
+</p><p>{
+ </p><p>   printf("%d\n", age1);
+ </p><p>   printf("%d\n", age2);
+</p><p>}
+
+</p><p>int main()
+</p><p>{
+ </p><p>   int ageArray[] = {2, 8, 4, 12};
+
+ </p><p>   // Passing second and third elements to display()
+ </p><p>   display(ageArray[1], ageArray[2]); 
+ </p><p>   return 0;
+</p><p>}
+</p><p>Output
+</p><p>8
+</p><p>4</code>
+
+</p><p>Example 2: Passing arrays to functions
+</p><p><code>// Program to calculate the sum of array elements by passing to a function 
+
+</p><p>#include <stdio.h>
+</p><p>float calculateSum(float age[]);
+
+</p><p>int main() {
+  </p><p>  float result, age[] = {23.4, 55, 22.6, 3, 40.5, 18};
+
+ </p><p>   // age array is passed to calculateSum()
+ </p><p>   result = calculateSum(age); 
+ </p><p>   printf("Result = %.2f", result);
+ </p><p>   return 0;
+</p><p>}
+
+</p><p>float calculateSum(float age[]) {
+
+</p><p>  float sum = 0.0;
+
+</p><p>  for (int i = 0; i < 6; ++i) {
+</p><p>		sum += age[i];
+</p><p>  }
+
+</p><p>  return sum;
+</p><p>}
+</p><p>Output
+</p><p>Result = 162.50</code>
+</p><p>To pass an entire array to a function, only the name of the array is passed as an argument.
+</p><p>result =  calculateSum(age);
+</p><p>However, notice the use of [] in the function definition.
+</p><p>float calculateSum(float age[]) {
+... ..
+</p><p>}
+</p><p>This informs the compiler that you are passing a one-dimensional array to the function.
+
+</p><p>Passing Multidimensional Arrays to a Function
+
+
+
+</p><p>To pass multidimensional arrays to a function, only the name of the array is passed to the function(similar to one-dimensional arrays).
+</p><p>Example 3: Passing two-dimensional arrays
+</p><p><code>#include <stdio.h>
+</p><p>void displayNumbers(int num[2][2]);
+</p><p>int main()
+</p><p>{
+ </p><p>   int num[2][2];
+ </p><p>   printf("Enter 4 numbers:\n");
+ </p><p>   for (int i = 0; i < 2; ++i)
+  </p><p>      for (int j = 0; j < 2; ++j)
+ </p><p>           scanf("%d", &num[i][j]);
+
+ </p><p>   // passing multi-dimensional array to a function
+  </p><p>  displayNumbers(num);
+  </p><p>  return 0;
+</p><p>}
+
+</p><p>void displayNumbers(int num[2][2])
+</p><p>{
+</p><p>    printf("Displaying:\n");
+</p><p>    for (int i = 0; i < 2; ++i) {
+</p><p>        for (int j = 0; j < 2; ++j) {
+</p><p>           printf("%d\n", num[i][j]);
+ </p><p>       }
+</p><p>    }
+</p><p>}
+</p><p>Output
+</p><p>Enter 4 numbers:
+</p><p>2
+</p><p>3
+</p><p>4
+</p><p>5
+</p><p>Displaying:
+</p><p>2
+</p><p>3
+</p><p>4
+</p><p>5</code>
+</p><p>Note: In C programming, you can pass arrays to functions, however, you cannot return arrays from functions.
+
+</p>
+
+
+</div>
+
+<footer class="jumbotron">
+<h1 class="text-center"> Created by <kbd>rajvarma25</kbd> </h1>
+</footer>
+
+</body>
+</html>

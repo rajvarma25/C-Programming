@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<title style="font-family:Mistral;font-size:30px">C Programming/Functions</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="jumbotron bg-primary">
+<h1 class="text-center" style="font-family:Staatliches;font-size:50px;color:white"><kbd>C</kbd> Programming For Beginners</h1>
+</div>
+
+
+<div class="container">
+<h1 class="text-center" style="font-family:staatliches"><kbd>C</kbd> Functions</h1>
+
+</div>
+</div>
+</div>
+</header>
+
+
+
+<div class="container">
+
+<p>
+
+</p><p>
+</p><p>In this tutorial, you will be introduced to functions (both user-defined and standard library functions) in C programming. Also, you will learn why functions are used in programming.
+
+
+</p><p>A function is a block of code that performs a specific task.
+</p><p>Suppose, you need to create a program to create a circle and color it. You can create two functions to solve this problem:
+</p><p>create a circle function
+</p><p>create a color function
+</p><p>Dividing a complex problem into smaller chunks makes our program easy to understand and reuse.
+
+</p><p><kbd>Types of function</kbd>
+</p><p>There are two types of function in C programming:
+</p><p>Standard library functions
+</p><p>User-defined functions
+
+</p><p><kbd>Standard library functions</kbd>
+</p><p>The standard library functions are built-in functions in C programming.
+</p><p>These functions are defined in header files. For example,
+</p><p>The printf() is a standard library function to send formatted output to the screen (display output on the screen). This function is defined in the stdio.h header file.
+</p><p>Hence, to use the printf() function, we need to include the stdio.h header file using #include <stdio.h>.
+</p><p>The sqrt() function calculates the square root of a number. The function is defined in the math.h header file.  
+</p><p>Visit standard library functions in C programming to learn more.
+
+</p><p><kbd>User-defined function</kbd>
+</p><p>You can also create functions as per your need. Such functions created by the user are known as user-defined functions.
+</p><p>How user-defined function works?
+</p><p><code>#include <stdio.h>
+</p><p>void functionName()
+</p><p>{
+  </p><p>  ... .. ...
+  </p><p>  ... .. ...
+</p><p>}
+
+</p><p>int main()
+</p><p>{
+  </p><p>  ... .. ...
+  </p><p>  ... .. ...
+
+  </p><p>  functionName();
+    
+  </p><p>  ... .. ...
+  </p><p>  ... .. ...
+</p><p>}</code>
+</p><p>The execution of a C program begins from the main() function.
+</p><p>When the compiler encounters functionName();, control of the program jumps to
+ </p><p>void functionName()
+</p><p>And, the compiler starts executing the codes inside functionName().
+
+
+
+</p><p>The control of the program jumps back to the main() function once code inside the function definition is executed.
+
+</p><p>Note, function names are identifiers and should be unique.
+</p><p>This is just an overview of user-defined functions. Visit these pages to learn more on:
+</p><p>User-defined Function in C programming
+</p><p>Types of user-defined Functions
+
+</p><p><kbd>Advantages of user-defined function</kbd>
+</p><p>The program will be easier to understand, maintain and debug.
+</p><p>Reusable codes that can be used in other programs
+</p><p>A large program can be divided into smaller modules. Hence, a large project can be divided among many programmers.
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> User-defined functions</h1></p><p>
+</p><p>In this tutorial, you will learn to create user-defined functions in C programming with the help of an example.
+
+
+</p><p>A function is a block of code that performs a specific task.
+</p><p>C allows you to define functions according to your need. These functions are known as user-defined functions. For example:
+</p><p>Suppose, you need to create a circle and color it depending upon the radius and color. You can create two functions to solve this problem:
+</p><p>createCircle() function
+</p><p>color() function
+
+</p><p>Example: User-defined function
+</p><p>Here is an example to add two integers. To perform this task, we have created an user-defined addNumbers().
+</p><p><code>#include <stdio.h>
+</p><p>int addNumbers(int a, int b);         // function prototype
+
+</p><p>int main()
+</p><p>{
+   </p><p> int n1,n2,sum;
+
+   </p><p> printf("Enters two numbers: ");
+   </p><p> scanf("%d %d",&n1,&n2);
+
+  </p><p>  sum = addNumbers(n1, n2);        // function call
+  </p><p>  printf("sum = %d",sum);
+
+  </p><p>  return 0;
+</p><p>}
+
+</p><p>int addNumbers(int a, int b)         // function definition   
+</p><p>{
+   </p><p> int result;
+   </p><p> result = a+b;
+   </p><p> return result;                  // return statement
+</p><p>}</code>
+
+</p><p><kbd>Function prototype</kbd>
+</p><p>A function prototype is simply the declaration of a function that specifies function's name, parameters and return type. It doesn't contain function body.
+</p><p>A function prototype gives information to the compiler that the function may later be used in the program.
+</p><p>Syntax of function prototype
+</p><p>returnType functionName(type1 argument1, type2 argument2, ...);
+</p><p>In the above example, int addNumbers(int a, int b); is the function prototype which provides the following information to the compiler:
+</p><p>name of the function is addNumbers()
+</p><p>return type of the function is int
+</p><p>two arguments of type int are passed to the function
+</p><p>The function prototype is not needed if the user-defined function is defined before the main() function.
+
+</p><p><kbd>Calling a function</kbd>
+</p><p>Control of the program is transferred to the user-defined function by calling it.
+</p><p>Syntax of function call
+</p><p>functionName(argument1, argument2, ...);
+</p><p>In the above example, the function call is made using addNumbers(n1, n2); statement inside the main() function.
+
+</p><p><kbd>Function definition</kbd>
+</p><p>Function definition contains the block of code to perform a specific task. In our example, adding two numbers and returning it.
+</p><p>Syntax of function definition
+</p><p>returnType functionName(type1 argument1, type2 argument2, ...)
+</p><p>{
+</p><p>    //body of the function
+</p><p>}
+</p><p>When a function is called, the control of the program is transferred to the function definition. And, the compiler starts executing the codes inside the body of a function.
+
+</p><p>Passing arguments to a function
+</p><p>In programming, argument refers to the variable passed to the function. In the above example, two variables n1 and n2 are passed during the function call.
+</p><p>The parameters a and b accepts the passed arguments in the function definition. These arguments are called formal parameters of the function.
+
+</p><p>The type of arguments passed to a function and the formal parameters must match, otherwise, the compiler will throw an error.
+
+
+
+</p><p>If n1 is of char type, a also should be of char type. If n2 is of float type, variable b also should be of float type.
+</p><p>A function can also be called without passing an argument.
+
+</p><p>Return Statement
+</p><p>The return statement terminates the execution of a function and returns a value to the calling function. The program control is transferred to the calling function after the return statement.
+</p><p>In the above example, the value of the result variable is returned to the main function. The sum variable in the main() function is assigned this value.
+
+</p><p>Syntax of return statement
+</p><p>return (expression);     
+</p><p>For example,
+</p><p>return a;
+</p><p>return (a+b);
+</p><p>The type of value returned from the function and the return type specified in the function prototype and function definition must match.
+</p><p>Visit this page to learn more on passing arguments and returning value from a function.
+
+
+</p><p>Types of User-defined Functions in C Programming
+</p><p>In this tutorial, you will learn about different approaches you can take to solve the same problem using functions.
+
+
+</p><p>These 4 programs below check whether the integer entered by the user is a prime number or not.
+</p><p>The output of all these programs below is the same, and we have created a user-defined function in each example. However, the approach we have taken in each example is different.
+
+</p><p>Example 1: No arguments passed and no return value
+</p><p><code>#include <stdio.h>
+
+</p><p>void checkPrimeNumber();
+
+</p><p>int main()
+</p><p>{
+ </p><p>   checkPrimeNumber();    // argument is not passed
+ </p><p>   return 0;
+</p><p>}
+
+</p><p>// return type is void meaning doesn't return any value
+</p><p>void checkPrimeNumber()
+</p><p>{
+ </p><p>   int n, i, flag = 0;
+
+ </p><p>   printf("Enter a positive integer: ");
+ </p><p>   scanf("%d",&n);
+
+  </p><p>  for(i=2; i <= n/2; ++i)
+   </p><p> {
+  </p><p>      if(n%i == 0)
+   </p><p>     {
+   </p><p>         flag = 1;
+   </p><p>     }
+   </p><p> }
+   </p><p> if (flag == 1)
+   </p><p>else
+   </p><p>     printf("%d is a prime number.", n);
+</p><p>}</code>
+</p><p>The checkPrimeNumber() function takes input from the user, checks whether it is a prime number or not and displays it on the screen.
+</p><p>The empty parentheses in checkPrimeNumber(); statement inside the main() function indicates that no argument is passed to the function.
+</p><p>The return type of the function is void. Hence, no value is returned from the function.
+
+</p><p>Example 2: No arguments passed but a return value
+</p><p><code>#include <stdio.h>
+</p><p>int getInteger();
+
+</p><p>int main()
+</p><p>{
+</p><p>    int n, i, flag = 0;
+
+</p><p>   // no argument is passed
+</p><p>    n = getInteger();    
+
+</p><p>    for(i=2; i<=n/2; ++i)
+</p><p>    {
+</p><p>        if(n%i==0){
+</p><p>            flag = 1;
+</p><p>            break;
+</p><p>        }
+</p><p>
+</p><p>    if (flag == 1)
+</p><p>        printf("%d is not a prime number.", n);
+</p><p>    else
+</p><p>        printf("%d is a prime number.", n);
+
+</p><p>    return 0;
+</p><p>}
+
+</p><p>// returns integer entered by the user
+</p><p>int getInteger()       
+</p><p>{
+</p><p>    int n;
+</p><p>
+</p><p>    printf("Enter a positive integer: ");
+</p><p>    scanf("%d",&n);
+
+ </p><p>   return n;
+</p><p>}</code>
+</p><p>The empty parentheses in the n = getInteger(); statement indicates that no argument is passed to the function. And, the value returned from the function is assigned to n.
+
+
+
+</p><p>Here, the getInteger() function takes input from the user and returns it. The code to check whether a number is prime or not is inside the main() function.
+
+</p><p>Example 3: Argument passed but no return value
+</p><p><code>#include <stdio.h>
+</p><p>void checkPrimeAndDisplay(int n);
+</p><p>
+</p><p>int main()
+</p><p>{
+</p><p>    int n;
+</p><p>
+</p><p>    printf("Enter a positive integer: ");
+</p><p>    scanf("%d",&n);
+</p><p>
+</p><p>    // n is passed to the function
+</p><p>    checkPrimeAndDisplay(n);
+</p><p>
+</p><p>    return 0;
+</p><p>}
+</p><p>
+</p><p>// return type is void meaning doesn't return any value
+</p><p>void checkPrimeAndDisplay(int n) 
+</p><p>{
+</p><p>    int i, flag = 0;
+</p><p>
+</p><p>    for(i=2; i <= n/2; ++i)
+</p><p>    {
+</p><p>        if(n%i == 0){
+</p><p>            flag = 1;
+</p><p>            break;
+</p><p>        }
+</p><p>    }
+</p><p>    if(flag == 1)
+ </p><p>       printf("%d is not a prime number.",n);
+ </p><p>   else
+ </p><p>       printf("%d is a prime number.", n);
+</p><p>}</code>
+</p><p>The integer value entered by the user is passed to the checkPrimeAndDisplay() function.
+</p><p>Here, the checkPrimeAndDisplay() function checks whether the argument passed is a prime number or not and displays the appropriate message.
+
+</p><p>Example 4: Argument passed and a return value
+</p><p><code>#include <stdio.h>
+</p><p>int checkPrimeNumber(int n);
+
+</p><p>int main()
+</p><p>{
+</p><p>    int n, flag;
+
+ </p><p>   printf("Enter a positive integer: ");
+ </p><p>   scanf("%d",&n);
+
+  </p><p>  // n is passed to the checkPrimeNumber() function
+  </p><p>  // the returned value is assigned to the flag variable
+  </p><p>  flag = checkPrimeNumber(n);
+
+  </p><p>  if(flag == 1)
+  </p><p>      printf("%d is not a prime number",n);
+  </p><p>  else
+  </p><p>      printf("%d is a prime number",n);
+
+  </p><p>  return 0;
+</p><p>}
+
+</p><p>// int is returned from the function
+</p><p>int checkPrimeNumber(int n)
+</p><p>{
+ </p><p>   int i;
+
+ </p><p>   for(i=2; i <= n/2; ++i)
+  </p><p>  {
+   </p><p>     if(n%i == 0)
+   </p><p>         return 1;
+   </p><p> }
+
+   </p><p> return 0;
+</p><p>}</code>
+</p><p>The input from the user is passed to the checkPrimeNumber() function.
+</p><p>The checkPrimeNumber() function checks whether the passed argument is prime or not.
+</p><p>If the passed argument is a prime number, the function returns 0. If the passed argument is a non-prime number, the function returns 1. The return value is assigned to the flag variable.
+</p><p>Depending on whether flag is 0 or 1, an appropriate message is printed from the main() function.
+
+</p><p>Which approach is better?
+</p><p>Well, it depends on the problem you are trying to solve. In this case, passing argument and returning a value from the function (example 4) is better.
+</p><p>A function should perform a specific task. The checkPrimeNumber() function doesn't take input from the user nor it displays the appropriate message. It only checks whether a number is prime or not.
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Recursion</h1></p><p> 
+</p><p>In this tutorial, you will learn to write recursive functions in C programming with the help of an example.
+</p><p>
+
+</p><p>A function that calls itself is known as a recursive function. And, this technique is known as recursion.
+
+</p><p><kbd>How recursion works?</kbd>
+</p><p>void recurse()
+</p><p>{
+</p><p>    ... .. ...
+</p><p>    recurse();
+</p><p>    ... .. ...
+</p><p>}
+</p><p>
+</p><p>int main()
+</p><p>{
+</p><p>    ... .. ...
+</p><p>    recurse();
+</p><p>    ... .. ...
+</p><p>}
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>The recursion continues until some condition is met to prevent it.
+</p><p>To prevent infinite recursion, if...else statement (or similar approach) can be used where one branch makes the recursive call, and other doesn't.
+
+</p><p>Example: Sum of Natural Numbers Using Recursion
+</p><p><code>#include <stdio.h>
+</p><p>int sum(int n);
+</p><p>
+</p><p>int main() {
+  </p><p>  int number, result;
+
+   </p><p> printf("Enter a positive integer: ");
+   </p><p> scanf("%d", &number);
+
+   </p><p> result = sum(number);
+
+  </p><p>  printf("sum = %d", result);
+  </p><p>  return 0;
+</p><p>}
+
+</p><p>int sum(int n) {
+ </p><p>   if (n != 0)
+   </p><p>     // sum() function calls itself
+   </p><p>     return n + sum(n-1); 
+ </p><p>   else
+  </p><p>      return n;
+</p><p>}
+</p><p>Output
+</p><p>Enter a positive integer:3
+</p><p>sum = 6
+</code>
+</p><p>Initially, the sum() is called from the main() function with number passed as an argument.
+</p><p>Suppose, the value of n inside sum() is 3 initially. During the next function call, 2 is passed to the sum() function. This process continues until n is equal to 0.
+</p><p>When n is equal to 0, the if condition fails and the else part is executed returning the sum of integers ultimately to the main() function.
+
+
+</p><p><kbd>Advantages and Disadvantages of Recursion</kbd>
+</p><p>Recursion makes program elegant. However, if performance is vital, use loops instead as recursion is usually much slower.
+</p><p>That being said, recursion is an important concept. It is frequently used in data structure and algorithms. For example, it is common to use recursion in problems such as tree traversal.
+
+
+
+
+
+</p><p><h1 class="text-center"><kbd>C</kbd> Storage Class</h1></p><p>
+</p><p>In this tutorial, you will learn about scope and lifetime of local and global variables. Also, you will learn about static and register variables.
+
+
+</p><p>Every variable in C programming has two properties: type and storage class.
+</p><p>Type refers to the data type of a variable. And, storage class determines the scope, visibility and lifetime of a variable.
+</p><p>There are 4 types of storage class:
+</p><p>automatic
+</p><p>external
+</p><p>static
+</p><p>register
+
+</p><p><kbd>Local Variable</kbd>
+</p><p>The variables declared inside a block are automatic or local variables. The local variables exist only inside the block in which it is declared.
+</p><p>Let's take an example.
+</p><p><code>#include <stdio.h>
+
+</p><p>int main(void) {
+  
+ </p><p> for (int i = 0; i < 5; ++i) {
+  </p><p>   printf("C programming");
+</p><p>  }
+  
+</p><p> // Error: i is not declared at this point
+</p><p>  printf("%d", i);  
+</p><p>  return 0;
+</p><p>}
+</p><p>When you run the above program, you will get an error undeclared identifier i. It's because i is declared inside the for loop block. Outside of the block, it's undeclared.
+</p><p>Let's take another example.
+
+</p><p>int main() {
+ </p><p>   int n1; // n1 is a local variable to main()
+</p><p>}
+
+</p><p>void func() {
+</p><p>   int n2;  // n2 is a local variable to func()
+</p><p>}</code>
+</p><p>In the above example, n1 is local to main() and n2 is local to func().
+</p><p>This means you cannot access the n1 variable inside func() as it only exists inside main(). Similarly, you cannot access the n2 variable inside main() as it only exists inside func().
+
+</p><p><kbd>Global Variable</kbd>
+
+
+
+</p><p>Variables that are declared outside of all functions are known as external or global variables. They are accessible from any function inside the program.
+
+</p><p>Example 1: Global Variable
+</p><p><code>#include <stdio.h>
+</p><p>void display();
+
+</p><p>int n = 5;  // global variable
+</p><p>
+</p><p>int main()
+</p><p>{
+  </p><p>  ++n;     
+  </p><p>  display();
+ </p><p>   return 0;
+</p><p>}
+
+</p><p>void display()
+</p><p>{
+</p><p>    ++n;   
+</p><p>    printf("n = %d", n);
+</p><p>}
+</p><p>Output
+</p><p>n = 7
+</code>
+</p><p>Suppose, a global variable is declared in file1. If you try to use that variable in a different file file2, the compiler will complain. To solve this problem, keyword extern is used in file2 to indicate that the external variable is declared in another file.
+
+</p><p><kbd>Register Variable</kbd>
+</p><p>The register keyword is used to declare register variables. Register variables were supposed to be faster than local variables.
+</p><p>However, modern compilers are very good at code optimization, and there is a rare chance that using register variables will make your program faster.
+</p><p>Unless you are working on embedded systems where you know how to optimize code for the given application, there is no use of register variables.
+
+</p><p><kbd>Static Variable</kbd>
+</p><p>A static variable is declared by using the static keyword. For example;
+</p><p>static int i;
+</p><p>The value of a static variable persists until the end of the program.
+
+</p><p>Example 2: Static Variable
+</p><p><code>#include <stdio.h>
+</p><p>void display();
+
+</p><p>int main()
+</p><p>{
+</p><p>    display();
+</p><p>    display();
+</p><p>}
+</p><p>void display()
+</p><p>{
+  </p><p>  static int c = 1;
+  </p><p>  c += 5;
+  </p><p>  printf("%d  ",c);
+</p><p>}
+</p><p>Output
+</p><p>6 11</code>
+</p><p class="text-muted">During the first function call, the value of c is initialized to 1. Its value is increased by 5. Now, the value of c is 6, which is printed on the screen.
+</p><p class="text-muted">During the second function call, c is not initialized to 1 again. It's because c is a static variable. The value c is increased by 5. Now, its value will be 11, which is printed on the screen.
+
+
+</div>
+
+
+
+
+
+
+
+</p>
+<footer class="jumbotron">
+<h1 class="text-center"> Created by <kbd>rajvarma25</kbd> </h1>
+</footer>
+
+</body>
+</html>
